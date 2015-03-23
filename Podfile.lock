@@ -1,0 +1,15 @@
+PODS:
+  - APAddressBook (0.1.5):
+    - APAddressBook/Core (= 0.1.5)
+  - APAddressBook/Core (0.1.5)
+  - HexColors (2.2.1)
+
+DEPENDENCIES:
+  - APAddressBook
+  - HexColors
+
+SPEC CHECKSUMS:
+  APAddressBook: 38bddd264b0d547021d14c8fb22ad64c73663b96
+  HexColors: 01384d2bbe8dc4ffa43c3b4135db6e976952d153
+
+COCOAPODS: 0.36.0

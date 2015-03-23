@@ -8,15 +8,18 @@
 
 import UIKit
 import AddressBook
+import AddressBookUI
 
-class contactTableViewController: UITableViewController {
+class contactTableViewController: UITableViewController, ABPersonViewControllerDelegate, ABNewPersonViewControllerDelegate{
     
     var myBook = Array<Dictionary<String,AnyObject>>()
+    let ap = APAddressBook()
+    var addressBook:ABAddressBookRef?
 
     
     func getSysContacts() -> [[String:AnyObject]] {
         var error:Unmanaged<CFError>?
-        var addressBook: ABAddressBookRef? = ABAddressBookCreateWithOptions(nil, &error).takeRetainedValue()
+        addressBook = ABAddressBookCreateWithOptions(nil, &error).takeRetainedValue()
         
         let sysAddressBookStatus = ABAddressBookGetAuthorizationStatus()
         
@@ -25,7 +28,7 @@ class contactTableViewController: UITableViewController {
             var authorizedSingal:dispatch_semaphore_t = dispatch_semaphore_create(0)
             var askAuthorization:ABAddressBookRequestAccessCompletionHandler = { success, error in
                 if success {
-                    ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue() as NSArray
+                    ABAddressBookCopyArrayOfAllPeople(self.addressBook).takeRetainedValue() as NSArray
                     dispatch_semaphore_signal(authorizedSingal)
                 }
             }
@@ -99,6 +102,8 @@ class contactTableViewController: UITableViewController {
                 /*
                 部分单值属性
                 */
+                
+                currentContact["abrecord"] = contact
                 // 姓、姓氏拼音
                 var FirstName:String = ABRecordCopyValue(contact, kABPersonFirstNameProperty)?.takeRetainedValue() as String? ?? ""
                 currentContact["FirstName"] = FirstName
@@ -168,6 +173,7 @@ class contactTableViewController: UITableViewController {
                 }
                 allContacts.append(currentContact)
             }
+            allContacts = sorted(allContacts,mcp)
             return allContacts
         }
         return analyzeSysContacts( ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue() as NSArray )
@@ -181,9 +187,29 @@ class contactTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-    @IBAction func sync(sender: UIBarButtonItem) {
+    
+    func mcp(dict1: Dictionary<String,AnyObject>, dict2:Dictionary<String,AnyObject>) -> Bool{
+        let firstname1 = dict1["FirstName"] as String
+        let firstname2 = dict2["FirstName"] as String
+        let lastname1 = dict1["LastName"] as String
+        let lastname2 = dict2["LastName"] as String
+        if firstname1 == firstname2 {
+            return lastname1 < lastname2
+        } else {
+            return firstname1 < firstname2
+        }
+
+    }
+    
+    func refresh(){
         myBook = getSysContacts()
+        
+        //test()
         self.tableView.reloadData()
+    }
+    
+    @IBAction func sync(sender: UIBarButtonItem) {
+        refresh()
     }
 
     override func didReceiveMemoryWarning() {
@@ -215,6 +241,50 @@ class contactTableViewController: UITableViewController {
         return cell
     }
     
+    func test(){
+        self.ap.loadContacts(
+            { (contacts: [AnyObject]!, error: NSError!) in
+                if contacts != nil{
+                    for contact in contacts {
+                        let c = contact as APContact
+                        println(c.firstName)
+                    }
+                }
+                else if error != nil {
+                    // show error
+                }
+        })
+    }
+    
+    @IBAction func addNewPerson(sender: UIBarButtonItem) {
+        let npvc = ABNewPersonViewController()
+        npvc.newPersonViewDelegate = self
+        let nc = UINavigationController(rootViewController:npvc)
+        self.presentViewController(nc, animated:true, completion:nil)
+    }
+
+    func personViewController(personViewController: ABPersonViewController!, shouldPerformDefaultActionForPerson person: ABRecord!, property: ABPropertyID, identifier: ABMultiValueIdentifier) -> Bool {
+        return false
+    }
+    
+    func newPersonViewController(newPersonView: ABNewPersonViewController!, didCompleteWithNewPerson person: ABRecord!) {
+        refresh()
+        self.dismissViewControllerAnimated(true, completion:nil)
+        
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let record: ABRecordRef! = myBook[indexPath.row]["abrecord"] as ABRecordRef!
+        let vc = ABPersonViewController()
+        vc.addressBook = self.addressBook
+        vc.displayedPerson = record
+        vc.personViewDelegate = self
+        vc.displayedProperties = [Int(kABPersonEmailProperty),Int(kABPersonPhoneProperty)]
+        vc.allowsEditing = false
+        vc.allowsActions = true
+        self.showViewController(vc, sender: self)
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.

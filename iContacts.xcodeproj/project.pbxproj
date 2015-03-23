@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		177B52E5F89328635BAB1EC1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F862BD7FAEBE0B9573CAE4D5 /* libPods.a */; };
 		97670E571ABCC12B000690CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97670E561ABCC12B000690CE /* AppDelegate.swift */; };
 		97670E5A1ABCC12B000690CE /* iContacts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 97670E581ABCC12B000690CE /* iContacts.xcdatamodeld */; };
 		97670E5C1ABCC12B000690CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97670E5B1ABCC12B000690CE /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3243A20339A4C7C60F211578 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		97670E511ABCC12B000690CE /* iContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97670E551ABCC12B000690CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97670E561ABCC12B000690CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,11 +59,14 @@
 		97670E851ABCCA3D000690CE /* RAMAnimatedTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMAnimatedTabBarController.swift; sourceTree = "<group>"; };
 		97670E861ABCCA3D000690CE /* RAMItemAnimationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMItemAnimationProtocol.swift; sourceTree = "<group>"; };
 		978ED1131ABF683C00D5B699 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = iContacts/Podfile; sourceTree = "<group>"; };
+		978ED1151ABF6B9900D5B699 /* iContacts-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iContacts-Bridging-Header.h"; sourceTree = "<group>"; };
 		978F1FDA1ABE0D3400191803 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		978F1FDC1ABE0D3E00191803 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		978F1FDE1ABE14EF00191803 /* contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contact.swift; sourceTree = "<group>"; };
 		978F1FE01ABE308500191803 /* contactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contactTableViewController.swift; sourceTree = "<group>"; };
 		978F1FE21ABE400000191803 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E2C71344AD3B5F758C43EAD4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F862BD7FAEBE0B9573CAE4D5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +76,7 @@
 			files = (
 				978F1FDD1ABE0D3E00191803 /* AddressBookUI.framework in Frameworks */,
 				978F1FDB1ABE0D3400191803 /* AddressBook.framework in Frameworks */,
+				177B52E5F89328635BAB1EC1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52A4E834B3D74CCC64F05B76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F862BD7FAEBE0B9573CAE4D5 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		97670E481ABCC12B000690CE = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +107,8 @@
 				97670E6C1ABCC12B000690CE /* iContactsTests */,
 				97670E521ABCC12B000690CE /* Products */,
 				978ED1131ABF683C00D5B699 /* Podfile */,
+				E6D8DC66E43477A10A65869E /* Pods */,
+				52A4E834B3D74CCC64F05B76 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +134,7 @@
 				97670E621ABCC12B000690CE /* LaunchScreen.xib */,
 				97670E581ABCC12B000690CE /* iContacts.xcdatamodeld */,
 				97670E541ABCC12B000690CE /* Supporting Files */,
+				978ED1151ABF6B9900D5B699 /* iContacts-Bridging-Header.h */,
 			);
 			path = iContacts;
 			sourceTree = "<group>";
@@ -209,6 +226,15 @@
 			path = TransitionAniamtions;
 			sourceTree = "<group>";
 		};
+		E6D8DC66E43477A10A65869E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3243A20339A4C7C60F211578 /* Pods.debug.xcconfig */,
+				E2C71344AD3B5F758C43EAD4 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -216,9 +242,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97670E731ABCC12B000690CE /* Build configuration list for PBXNativeTarget "iContacts" */;
 			buildPhases = (
+				95CA7903435EC3A4C0C8AD3A /* Check Pods Manifest.lock */,
 				97670E4D1ABCC12B000690CE /* Sources */,
 				97670E4E1ABCC12B000690CE /* Frameworks */,
 				97670E4F1ABCC12B000690CE /* Resources */,
+				9F495B0001B2F103017F4BFC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -304,6 +332,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		95CA7903435EC3A4C0C8AD3A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9F495B0001B2F103017F4BFC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		97670E4D1ABCC12B000690CE /* Sources */ = {
@@ -434,21 +495,28 @@
 		};
 		97670E741ABCC12B000690CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3243A20339A4C7C60F211578 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = iContacts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iContacts/iContacts-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		97670E751ABCC12B000690CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2C71344AD3B5F758C43EAD4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = iContacts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iContacts/iContacts-Bridging-Header.h";
 			};
 			name = Release;
 		};

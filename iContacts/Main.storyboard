@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eHx-wT-GEE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Sync-->
@@ -104,53 +105,38 @@
         <scene sceneID="69C-qm-Pg2">
             <objects>
                 <tableViewController id="PUp-ck-DIh" customClass="contactTableViewController" customModule="iContacts" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="81" sectionHeaderHeight="22" sectionFooterHeight="22" id="Dhe-ud-3Y9">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" id="Dhe-ud-3Y9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="81" id="D0g-gd-WYz" customClass="contact" customModule="iContacts" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="52" id="D0g-gd-WYz" customClass="contact" customModule="iContacts" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D0g-gd-WYz" id="zJb-wY-0rX">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BqN-Vp-m68">
-                                            <rect key="frame" x="64" y="36" width="42" height="42"/>
-                                            <state key="normal" title="call">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="callHim:" destination="D0g-gd-WYz" eventType="touchUpInside" id="N3y-A3-s0U"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yda-un-MLN">
-                                            <rect key="frame" x="304" y="36" width="42" height="42"/>
-                                            <state key="normal" title="text">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="textHim:" destination="D0g-gd-WYz" eventType="touchUpInside" id="0Z9-UB-PpO"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tyN-2l-IyS">
-                                            <rect key="frame" x="550" y="36" width="42" height="42"/>
-                                            <state key="normal" title="mail">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="mailHim:" destination="D0g-gd-WYz" eventType="touchUpInside" id="CMJ-1z-cXm"/>
-                                            </connections>
-                                        </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYq-O1-uwO">
-                                            <rect key="frame" x="64" y="8" width="523" height="22"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tQs-a3-dXH">
+                                            <rect key="frame" x="8" y="6" width="44" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="gyo-Lb-q38"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYq-O1-uwO">
+                                            <rect key="frame" x="69" y="15" width="506" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tQs-a3-dXH">
-                                            <rect key="frame" x="12" y="21" width="44" height="40"/>
-                                        </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="tQs-a3-dXH" secondAttribute="bottom" constant="-3" id="2ld-Vz-fTN"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="iYq-O1-uwO" secondAttribute="trailing" constant="17" id="8Ua-TP-fZY"/>
+                                        <constraint firstItem="iYq-O1-uwO" firstAttribute="leading" secondItem="tQs-a3-dXH" secondAttribute="trailing" constant="17" id="FEh-nZ-I4Q"/>
+                                        <constraint firstItem="tQs-a3-dXH" firstAttribute="leading" secondItem="zJb-wY-0rX" secondAttribute="leadingMargin" id="TRH-zz-2bL"/>
+                                        <constraint firstItem="iYq-O1-uwO" firstAttribute="centerY" secondItem="tQs-a3-dXH" secondAttribute="centerY" id="hvB-BO-XYd"/>
+                                        <constraint firstItem="tQs-a3-dXH" firstAttribute="top" secondItem="zJb-wY-0rX" secondAttribute="topMargin" constant="-2" id="im2-Qg-LLX"/>
+                                        <constraint firstItem="iYq-O1-uwO" firstAttribute="top" secondItem="zJb-wY-0rX" secondAttribute="topMargin" constant="7" id="oO5-rB-F0i"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="myimage" destination="tQs-a3-dXH" id="xYf-d1-zhA"/>
@@ -169,12 +155,16 @@
                                 <action selector="sync:" destination="PUp-ck-DIh" id="PbD-bN-pN4"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="J03-Je-UDf"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="J03-Je-UDf">
+                            <connections>
+                                <action selector="addNewPerson:" destination="PUp-ck-DIh" id="IKh-AW-08k"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sed-0b-tTv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1003" y="716"/>
+            <point key="canvasLocation" x="779" y="567"/>
         </scene>
         <!--Contacts-->
         <scene sceneID="Rqo-Uq-mvS">
