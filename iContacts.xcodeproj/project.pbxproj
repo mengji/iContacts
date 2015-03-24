@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		177B52E5F89328635BAB1EC1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F862BD7FAEBE0B9573CAE4D5 /* libPods.a */; };
+		974BDACE1AC2156F00360C3E /* NewEventsPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974BDACD1AC2156F00360C3E /* NewEventsPhone.swift */; };
 		97670E571ABCC12B000690CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97670E561ABCC12B000690CE /* AppDelegate.swift */; };
 		97670E5A1ABCC12B000690CE /* iContacts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 97670E581ABCC12B000690CE /* iContacts.xcdatamodeld */; };
 		97670E5C1ABCC12B000690CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97670E5B1ABCC12B000690CE /* ViewController.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		3243A20339A4C7C60F211578 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		974BDACD1AC2156F00360C3E /* NewEventsPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEventsPhone.swift; sourceTree = "<group>"; };
 		97670E511ABCC12B000690CE /* iContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97670E551ABCC12B000690CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97670E561ABCC12B000690CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				97670E5B1ABCC12B000690CE /* ViewController.swift */,
 				978F1FE21ABE400000191803 /* Main.storyboard */,
 				978F1FE01ABE308500191803 /* contactTableViewController.swift */,
+				974BDACD1AC2156F00360C3E /* NewEventsPhone.swift */,
 				978F1FDE1ABE14EF00191803 /* contact.swift */,
 				979389821AC0F06700DF9A49 /* selectPersonViewController.swift */,
 				97670E791ABCCA3D000690CE /* RAMAnimatedTabBarController */,
@@ -386,6 +389,7 @@
 				978F1FE11ABE308500191803 /* contactTableViewController.swift in Sources */,
 				97670E881ABCCA3D000690CE /* RAMFrameItemAnimation.swift in Sources */,
 				97670E891ABCCA3D000690CE /* RAMFumeAnimation.swift in Sources */,
+				974BDACE1AC2156F00360C3E /* NewEventsPhone.swift in Sources */,
 				97670E871ABCCA3D000690CE /* RAMBounceAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

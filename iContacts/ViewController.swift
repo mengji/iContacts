@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class ViewController: UIViewController, ViewControllerDataSource{
+class ViewController: UIViewController, ViewControllerDataSource,UITableViewDelegate{
     var local:APContact? = nil {
         didSet{
             if local != nil{
@@ -19,11 +19,18 @@ class ViewController: UIViewController, ViewControllerDataSource{
                 } else {
                     thumbnail.image = UIImage(named: "placeholder")
                 }
-                phone.text = String(local?.phones[0] as NSString)
+                if let userPhones = local?.phones{
+                    self.phones = userPhones
+                    //self.tableview.frame.size.height = CGFloat(28 * userPhones.count)
+                } else {
+                    //self.tableview.frame.size.height = 28
+                }
                 name.text = local?.compositeName
             }
         }
     }
+    
+    var phones:NSArray = NSArray()
     
 
     func userSelectedContact(contact: APContact) {
@@ -40,6 +47,38 @@ class ViewController: UIViewController, ViewControllerDataSource{
     }
 
 
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+    @IBOutlet weak var tableview: UITableView!
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("phones", forIndexPath: indexPath) as NewEventsPhone
+        if phones.count > 0 {
+             cell.phone.text = phones[indexPath.row] as? String ?? ""
+        }
+        return cell
+        
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Potentially incomplete method implementation.
+        // Return the number of sections.
+        return 1
+    }
+    
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete method implementation.
+        // Return the number of rows in the section.
+        if let phones = local?.phones{
+            return phones.count
+        } else{
+            return 1
+        }
+    }
+    
     
     @IBOutlet weak var name: UILabel!
     override func viewDidLoad() {
