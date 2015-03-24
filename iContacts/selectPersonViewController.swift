@@ -7,8 +7,12 @@
 //
 
 import UIKit
-
+protocol ViewControllerDataSource : class {
+    func userSelectedContact(contact:APContact)
+}
 class selectPersonViewController: UITableViewController, UISearchBarDelegate{
+    
+    var delegate:ViewControllerDataSource?
     
     @IBOutlet weak var searchBar: UISearchBar!
     let addressBook = APAddressBook()
@@ -85,6 +89,8 @@ class selectPersonViewController: UITableViewController, UISearchBarDelegate{
         cell.name.text = (firstName ?? "") + " " + (lastName ?? "")
         return cell
     }
+    
+
     /*override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("selectCell", forIndexPath: indexPath) as contact
         let seletedContact = contacts[indexPath.row] as APContact
@@ -96,7 +102,8 @@ class selectPersonViewController: UITableViewController, UISearchBarDelegate{
     }*/
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
+        self.delegate?.userSelectedContact(contacts[indexPath.row] as APContact)
+        self.navigationController?.popViewControllerAnimated(true)
         
     }
     
