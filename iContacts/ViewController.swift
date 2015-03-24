@@ -8,29 +8,15 @@
 
 import UIKit
 
+protocol newEventDelegate {
+    func userSelectedContact(sender : ViewController) -> APContact?
+}
 
-
-class ViewController: UIViewController, ViewControllerDataSource{
-    var local:APContact? = nil {
-        didSet{
-            if local != nil{
-                thumbnail.image = local?.thumbnail
-                phone.text = String(local?.phones[0] as NSString)
-                name.text = local?.compositeName
-            }
-        }
-    }
+class ViewController: UIViewController {
     
-    func userSelectedContact(contact: APContact) {
-        self.local = contact
-    }
 
-    @IBOutlet weak var name: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        var model = selectPersonViewController()
-        model.delegate = self
-
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -38,8 +24,6 @@ class ViewController: UIViewController, ViewControllerDataSource{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-   
 
 
     @IBOutlet weak var thumbnail: UIImageView!
@@ -47,6 +31,8 @@ class ViewController: UIViewController, ViewControllerDataSource{
     @IBOutlet weak var reason: UITextField!
     @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var `switch`: UISwitch!
+    @IBAction func createNewEvent(sender: UIButton) {
+    }
     @IBOutlet weak var datePicker: UIDatePicker!
 }
 

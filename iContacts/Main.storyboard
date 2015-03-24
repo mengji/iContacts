@@ -200,7 +200,7 @@
         <!--Events-->
         <scene sceneID="h9y-AL-hZL">
             <objects>
-                <tableViewController id="xBM-q1-rgy" customClass="eventsViewController" sceneMemberID="viewController">
+                <tableViewController id="xBM-q1-rgy" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="34D-TR-IG5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -256,16 +256,27 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Events" id="oBw-ic-byx">
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="WOp-5j-HVv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dL0-pl-9qN">
                             <connections>
-                                <segue destination="bgT-YF-e9F" kind="push" id="gh2-pV-G5z"/>
+                                <segue destination="bgT-YF-e9F" kind="show" id="uwo-fE-X1I"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="FCH-aa-E32" id="XaN-af-tKp"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BIU-ra-53V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="FCH-aa-E32">
+                    <connections>
+                        <outlet property="delegate" destination="xBM-q1-rgy" id="rLh-Re-BmW"/>
+                        <outlet property="searchContentsController" destination="xBM-q1-rgy" id="Fc5-5f-8ls"/>
+                        <outlet property="searchResultsDataSource" destination="xBM-q1-rgy" id="5rD-PN-V0f"/>
+                        <outlet property="searchResultsDelegate" destination="xBM-q1-rgy" id="aEs-3B-iUN"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1903" y="6"/>
+            <point key="canvasLocation" x="2001" y="15"/>
         </scene>
         <!--Select Person View Controller-->
         <scene sceneID="qBs-fx-Cta">
@@ -340,6 +351,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t98-Te-Cnp">
+                                <rect key="frame" x="104" y="72" width="480" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="9w2-sx-oFP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="zuN-it-VhO">
                                 <rect key="frame" x="16" y="298" width="568" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="448849286.70729202">
@@ -378,9 +398,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgK-Sx-n51">
-                                <rect key="frame" x="535" y="252" width="51" height="31"/>
-                            </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7b-eX-DnS">
                                 <rect key="frame" x="34" y="489" width="532" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.38510544763785959" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -402,15 +419,9 @@
                                     <constraint firstAttribute="width" constant="80" id="4ca-s5-tpK"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t98-Te-Cnp">
-                                <rect key="frame" x="104" y="72" width="480" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="9w2-sx-oFP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgK-Sx-n51">
+                                <rect key="frame" x="535" y="252" width="51" height="31"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -458,7 +469,7 @@
                     <connections>
                         <outlet property="createNewEvent" destination="Q7b-eX-DnS" id="WUc-Og-G1d"/>
                         <outlet property="datePicker" destination="zuN-it-VhO" id="64d-de-0rI"/>
-                        <outlet property="name" destination="t98-Te-Cnp" id="NNL-MN-9Ag"/>
+                        <outlet property="name" destination="t98-Te-Cnp" id="KYn-6X-Arn"/>
                         <outlet property="phone" destination="Gs1-qb-UvL" id="6YL-hg-KdL"/>
                         <outlet property="phoneNumber" destination="Gs1-qb-UvL" id="6Cq-hE-TaG"/>
                         <outlet property="reason" destination="kbZ-hT-5yI" id="jzS-fT-ZcK"/>
@@ -469,7 +480,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Y7-cY-8IC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2611" y="6"/>
+            <point key="canvasLocation" x="2665" y="15"/>
         </scene>
     </scenes>
     <resources>
