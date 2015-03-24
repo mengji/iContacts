@@ -8,7 +8,12 @@
 
 import UIKit
 
+protocol newEventDelegate {
+    func userSelectedContact(sender : ViewController) -> APContact?
+}
+
 class ViewController: UIViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,5 +26,13 @@ class ViewController: UIViewController {
     }
 
 
+    @IBOutlet weak var thumbnail: UIImageView!
+
+    @IBOutlet weak var reason: UITextField!
+    @IBOutlet weak var phone: UILabel!
+    @IBOutlet weak var `switch`: UISwitch!
+    @IBAction func createNewEvent(sender: UIButton) {
+    }
+    @IBOutlet weak var datePicker: UIDatePicker!
 }
 

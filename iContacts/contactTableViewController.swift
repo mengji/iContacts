@@ -236,8 +236,9 @@ class contactTableViewController: UITableViewController, ABPersonViewControllerD
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as contact
 
         cell.myimage.image = myBook[indexPath.row]["Thumbnail"] as? UIImage
-        cell.name.text = myBook[indexPath.row]["fullName"] as? String
-
+        let firstName = myBook[indexPath.row]["FirstName"] as? String
+        let lastName = myBook[indexPath.row]["LastName"] as? String
+        cell.name.text = (firstName ?? "") + " " + (lastName ?? "")
         return cell
     }
     
@@ -280,7 +281,7 @@ class contactTableViewController: UITableViewController, ABPersonViewControllerD
         vc.displayedPerson = record
         vc.personViewDelegate = self
         vc.displayedProperties = [Int(kABPersonEmailProperty),Int(kABPersonPhoneProperty)]
-        vc.allowsEditing = false
+        vc.allowsEditing = true
         vc.allowsActions = true
         self.showViewController(vc, sender: self)
         

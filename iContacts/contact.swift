@@ -12,15 +12,21 @@ class contact: UITableViewCell {
 
     
     @IBOutlet weak var myimage: UIImageView!
-    @IBOutlet var name: UILabel!
-
-    @IBAction func callHim(sender: UIButton) {
         
+    
+    @IBOutlet var name: UILabel!
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.myimage.layer.masksToBounds = true
+        self.myimage.layer.cornerRadius = self.myimage.bounds.size.width / 2
+        self.myimage.layer.borderWidth = 2
+        self.myimage.layer.borderColor = UIColor.grayColor().CGColor
+        self.myimage.highlighted = true
     }
 
-    @IBAction func textHim(sender: UIButton) {
-    }
-    @IBAction func mailHim(sender: UIButton) {
-    }
+
+
+
 }
 		
