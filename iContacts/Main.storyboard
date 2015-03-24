@@ -256,9 +256,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Events" id="oBw-ic-byx">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dL0-pl-9qN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="are-yp-4XI">
                             <connections>
-                                <segue destination="bgT-YF-e9F" kind="show" id="uwo-fE-X1I"/>
+                                <segue destination="bgT-YF-e9F" kind="push" id="9Ux-TP-G5b"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -398,6 +398,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="vbc-rc-haA">
+                                <rect key="frame" x="16" y="72" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="4ca-s5-tpK"/>
+                                </constraints>
+                            </imageView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgK-Sx-n51">
+                                <rect key="frame" x="535" y="252" width="51" height="31"/>
+                            </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7b-eX-DnS">
                                 <rect key="frame" x="34" y="489" width="532" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.38510544763785959" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -409,19 +418,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="createNewEvent:" destination="bgT-YF-e9F" eventType="touchUpInside" id="mow-Em-yAu"/>
-                                </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="vbc-rc-haA">
-                                <rect key="frame" x="16" y="72" width="80" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="4ca-s5-tpK"/>
-                                </constraints>
-                            </imageView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgK-Sx-n51">
-                                <rect key="frame" x="535" y="252" width="51" height="31"/>
-                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -466,17 +463,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="createNewEvent" destination="Q7b-eX-DnS" id="WUc-Og-G1d"/>
-                        <outlet property="datePicker" destination="zuN-it-VhO" id="64d-de-0rI"/>
-                        <outlet property="name" destination="t98-Te-Cnp" id="KYn-6X-Arn"/>
-                        <outlet property="phone" destination="Gs1-qb-UvL" id="6YL-hg-KdL"/>
-                        <outlet property="phoneNumber" destination="Gs1-qb-UvL" id="6Cq-hE-TaG"/>
-                        <outlet property="reason" destination="kbZ-hT-5yI" id="jzS-fT-ZcK"/>
-                        <outlet property="reasonText" destination="kbZ-hT-5yI" id="S3y-pn-KYo"/>
-                        <outlet property="switch" destination="vgK-Sx-n51" id="Kvs-Y0-xYf"/>
-                        <outlet property="thumbnail" destination="vbc-rc-haA" id="cP7-iD-oi3"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Y7-cY-8IC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

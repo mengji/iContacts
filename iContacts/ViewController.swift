@@ -31,8 +31,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var reason: UITextField!
     @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var `switch`: UISwitch!
-    @IBAction func createNewEvent(sender: UIButton) {
-    }
     @IBOutlet weak var datePicker: UIDatePicker!
 }
 
