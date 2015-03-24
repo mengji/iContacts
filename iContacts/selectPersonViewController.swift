@@ -22,9 +22,9 @@ class selectPersonViewController: UITableViewController, UISearchBarDelegate{
         super.viewDidLoad()
         searchBar.delegate = self
         getContacts()
-    
-        
     }
+
+
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         getContacts(search: searchText)
@@ -104,6 +104,7 @@ class selectPersonViewController: UITableViewController, UISearchBarDelegate{
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.delegate?.userSelectedContact(contacts[indexPath.row] as APContact)
         self.navigationController?.popViewControllerAnimated(true)
+
         
     }
     

@@ -200,7 +200,7 @@
         <!--Events-->
         <scene sceneID="h9y-AL-hZL">
             <objects>
-                <tableViewController id="xBM-q1-rgy" customClass="eventsViewController" sceneMemberID="viewController">
+                <tableViewController id="xBM-q1-rgy" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="34D-TR-IG5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -258,7 +258,7 @@
                     <navigationItem key="navigationItem" title="Events" id="oBw-ic-byx">
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="WOp-5j-HVv">
                             <connections>
-                                <segue destination="bgT-YF-e9F" kind="push" id="gh2-pV-G5z"/>
+                                <segue destination="bgT-YF-e9F" kind="push" id="0xG-MO-5mq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -326,7 +326,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SH2-FL-d0M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3490" y="26"/>
+            <point key="canvasLocation" x="3176" y="26"/>
         </scene>
         <!--New Events-->
         <scene sceneID="deM-IP-YVP">
@@ -381,21 +381,6 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgK-Sx-n51">
                                 <rect key="frame" x="535" y="252" width="51" height="31"/>
                             </switch>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7b-eX-DnS">
-                                <rect key="frame" x="34" y="489" width="532" height="40"/>
-                                <color key="backgroundColor" red="1" green="0.38510544763785959" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="4oW-lU-5dR"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="createNewEvent:" destination="bgT-YF-e9F" eventType="touchUpInside" id="mow-Em-yAu"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="vbc-rc-haA">
                                 <rect key="frame" x="16" y="72" width="80" height="80"/>
                                 <constraints>
@@ -411,6 +396,21 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7b-eX-DnS">
+                                <rect key="frame" x="34" y="489" width="532" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.38510544763785959" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="4oW-lU-5dR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createNewEvents:" destination="bgT-YF-e9F" eventType="touchUpInside" id="sPI-f2-aXa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -450,26 +450,24 @@
                     <navigationItem key="navigationItem" title="New Events" id="fqm-gW-Heh">
                         <barButtonItem key="rightBarButtonItem" title="Select contact" id="cNc-Wz-Plo">
                             <connections>
-                                <segue destination="cKF-Dg-0gu" kind="push" id="IGE-ga-9FG"/>
+                                <action selector="push:" destination="bgT-YF-e9F" id="khk-AM-q1Q"/>
+                                <segue destination="cKF-Dg-0gu" kind="push" identifier="selectPerson" id="jct-qf-70f"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="createNewEvent" destination="Q7b-eX-DnS" id="WUc-Og-G1d"/>
-                        <outlet property="datePicker" destination="zuN-it-VhO" id="64d-de-0rI"/>
-                        <outlet property="name" destination="t98-Te-Cnp" id="NNL-MN-9Ag"/>
-                        <outlet property="phone" destination="Gs1-qb-UvL" id="6YL-hg-KdL"/>
-                        <outlet property="phoneNumber" destination="Gs1-qb-UvL" id="6Cq-hE-TaG"/>
-                        <outlet property="reason" destination="kbZ-hT-5yI" id="jzS-fT-ZcK"/>
-                        <outlet property="reasonText" destination="kbZ-hT-5yI" id="S3y-pn-KYo"/>
-                        <outlet property="switch" destination="vgK-Sx-n51" id="Kvs-Y0-xYf"/>
-                        <outlet property="thumbnail" destination="vbc-rc-haA" id="cP7-iD-oi3"/>
+                        <outlet property="datePicker" destination="zuN-it-VhO" id="3ug-R1-pOM"/>
+                        <outlet property="name" destination="t98-Te-Cnp" id="p6q-Sa-zhU"/>
+                        <outlet property="phone" destination="Gs1-qb-UvL" id="DUz-sj-gFx"/>
+                        <outlet property="reason" destination="kbZ-hT-5yI" id="Nd8-MQ-qmT"/>
+                        <outlet property="switch" destination="vgK-Sx-n51" id="jmT-ZC-Xk6"/>
+                        <outlet property="thumbnail" destination="vbc-rc-haA" id="L6l-NJ-7zT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Y7-cY-8IC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2611" y="6"/>
+            <point key="canvasLocation" x="2545" y="26"/>
         </scene>
     </scenes>
     <resources>
