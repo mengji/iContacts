@@ -17,6 +17,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        /*application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert | UIUserNotificationType.Badge, categories: nil))*/
+        let notificationType = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
+        let acceptAction = UIMutableUserNotificationAction()
+        acceptAction.identifier = "Accept"
+        acceptAction.title = "Accept"
+        acceptAction.activationMode = UIUserNotificationActivationMode.Background
+        acceptAction.destructive = false
+        acceptAction.authenticationRequired = false
+        
+        let declineAction = UIMutableUserNotificationAction()
+        declineAction.identifier = "Decline"
+        declineAction.title = "Decline"
+        declineAction.activationMode = UIUserNotificationActivationMode.Background
+        declineAction.destructive = false
+        declineAction.authenticationRequired = false
+        
+        
+        let category = UIMutableUserNotificationCategory()
+        category.identifier = "invite"
+        category.setActions([acceptAction, declineAction], forContext: UIUserNotificationActionContext.Default)
+        let categories = NSSet(array: [category])
+        let settings = UIUserNotificationSettings(forTypes: notificationType, categories: categories)
+        application.registerUserNotificationSettings(settings)
         return true
     }
 
@@ -45,6 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // MARK: - Core Data stack
+    
 
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.Xiangrui.iContacts" in the application's documents Application Support directory.
@@ -106,6 +130,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        if application.applicationState == .Active{
+            let alert = UIAlertController(title: "iContact", message: "test", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Call", style: UIAlertActionStyle.Default, handler: {_ in self.call("test")}))
+            
+            window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)        }
+    }
+    
+    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
+        if identifier == "Call" {
+            call("test")
+        }
+    }
+    
+
+
+
+   
+    
+    
+    func call(phoneNumber:String){
+        //UIApplication.sharedApplication().openURL(NSURL(string: "tel://9809088798")!)
+        window?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
+        if UIApplication.sharedApplication().canOpenURL(NSURL(string: "http://reddit.com")!){
+        UIApplication.sharedApplication().openURL(NSURL(string: "http://reddit.com")!)
+        } else {
+            println("fail")
+        }
+    }
+    
+
 
 }
 
