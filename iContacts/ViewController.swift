@@ -76,6 +76,11 @@ class ViewController: UIViewController, ViewControllerDataSource{
             if notification.on {
                 createNotification()
             }
+            let fetchRequest = NSFetchRequest(entityName: "Events")
+            //let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+            //fetchRequest.sortDescriptors = [sortDescriptor]
+            var fetchResults = managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as? [Events]
+            println(fetchResults?.count)
             self.navigationController?.popViewControllerAnimated(true)
         }
     }
@@ -87,8 +92,8 @@ class ViewController: UIViewController, ViewControllerDataSource{
         //notification.applicationIconBadgeNumber = 1
         notification.alertBody = "Call \(local?.compositeName!) for \(reason.text)"
         notification.soundName = UILocalNotificationDefaultSoundName
-        notification.alertAction = "Call"
         notification.category = "invite"
+
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
         println("success")
 

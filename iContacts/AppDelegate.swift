@@ -20,15 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /*application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert | UIUserNotificationType.Badge, categories: nil))*/
         let notificationType = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
         let acceptAction = UIMutableUserNotificationAction()
-        acceptAction.identifier = "Accept"
-        acceptAction.title = "Accept"
+        acceptAction.identifier = "Call"
+        acceptAction.title = "Make a Call"
         acceptAction.activationMode = UIUserNotificationActivationMode.Background
         acceptAction.destructive = false
         acceptAction.authenticationRequired = false
         
         let declineAction = UIMutableUserNotificationAction()
         declineAction.identifier = "Decline"
-        declineAction.title = "Decline"
+        declineAction.title = "Cancel"
         declineAction.activationMode = UIUserNotificationActivationMode.Background
         declineAction.destructive = false
         declineAction.authenticationRequired = false
@@ -37,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let category = UIMutableUserNotificationCategory()
         category.identifier = "invite"
         category.setActions([acceptAction, declineAction], forContext: UIUserNotificationActionContext.Default)
+        //category.setActions([acceptAction], forContext: UIUserNotificationActionContext.Default)
         let categories = NSSet(array: [category])
         let settings = UIUserNotificationSettings(forTypes: notificationType, categories: categories)
         application.registerUserNotificationSettings(settings)
@@ -141,9 +142,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
+        var id = ""
+        if let info = notification.userInfo {
+            id = info["id"] as String
+        }
         if identifier == "Call" {
             call("test")
+            deleteNotification(id)
+        } else if identifier == "Decline" {
+            deleteNotification(id)
         }
+    }
+    
+    func deleteNotification(id:String){
+        let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName: "Events")
+        let predicate = NSPredicate(format: "id == %@", id)
+        fetchRequest.predicate = predicate
+        var fetchResults = managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as [Events]
+        println(fetchResults.count)
+        for event in fetchResults{
+            managedObjectContext?.deleteObject(event)
+        }
+        managedObjectContext?.save(nil)
+
+        
+        
     }
     
 

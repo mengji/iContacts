@@ -19,15 +19,23 @@ class Events: NSManagedObject {
     @NSManaged var id: String
     @NSManaged var reason: String
     
-    class func createInManagedObjectContext(moc:NSManagedObjectContext, contact:APContact,date:NSDate, phone:String,id:String,reason:String) -> Events {
+    class func createInManagedObjectContext(moc: NSManagedObjectContext, contact:APContact,date:NSDate, phone:String,id:String,reason:String) -> Events {
         let newEvent = NSEntityDescription.insertNewObjectForEntityForName("Events", inManagedObjectContext: moc) as Events
         newEvent.name = contact.compositeName
         newEvent.phone = phone
-        newEvent.thumbnail = UIImagePNGRepresentation(contact.thumbnail) ?? UIImagePNGRepresentation(UIImage(named: "placeholder"))
+        if contact.thumbnail != nil{
+            newEvent.thumbnail = UIImagePNGRepresentation(contact.thumbnail)
+        } else {
+            newEvent.thumbnail = UIImagePNGRepresentation(UIImage(named: "placeholder"))
+        }
+        
         newEvent.date = date
         newEvent.id = id
         newEvent.reason = reason
+        moc.save(nil)
+    
         return newEvent
+        
     }
 
 }
