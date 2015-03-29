@@ -9,6 +9,9 @@
 import UIKit
 import CoreData
 
+protocol EventsViewRefreshReminder:class {
+    func tableNeedReload()
+}
 
 class ViewController: UIViewController, ViewControllerDataSource{
     
@@ -28,6 +31,7 @@ class ViewController: UIViewController, ViewControllerDataSource{
             }
         }
     }
+    var delegate:EventsViewRefreshReminder?
     
 
     func userSelectedContact(contact: APContact) {
@@ -46,7 +50,9 @@ class ViewController: UIViewController, ViewControllerDataSource{
 
 
     @IBAction func dateChanged(sender: UIDatePicker) {
-        self.dateSeleted = sender.date
+        let seconds:NSTimeInterval = floor(sender.date.timeIntervalSinceReferenceDate / 60.0)*60.0
+        let rounded = NSDate(timeIntervalSinceReferenceDate: seconds)
+        self.dateSeleted = rounded
     }
     
     @IBOutlet weak var name: UILabel!
@@ -76,11 +82,12 @@ class ViewController: UIViewController, ViewControllerDataSource{
             if notification.on {
                 createNotification()
             }
-            let fetchRequest = NSFetchRequest(entityName: "Events")
+            /*let fetchRequest = NSFetchRequest(entityName: "Events")
             //let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
             //fetchRequest.sortDescriptors = [sortDescriptor]
-            var fetchResults = managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as? [Events]
-            println(fetchResults?.count)
+            var fetchResults = managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as? [Events]*/
+            delegate?.tableNeedReload()
+
             self.navigationController?.popViewControllerAnimated(true)
         }
     }

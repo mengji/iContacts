@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class TableViewController: UITableViewController {
+class TableViewController: UITableViewController,EventsViewRefreshReminder {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     var events:[Events] = [Events]()
     
@@ -24,6 +24,14 @@ class TableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+    @IBAction func refresh(sender: UIBarButtonItem) {
+        refresh()
+    }
+    
+    func tableNeedReload() {
+        refresh()
+    }
+    
     func refresh(){
         fetch()
         self.tableView.reloadData()
@@ -31,8 +39,8 @@ class TableViewController: UITableViewController {
     
     func fetch(){
         let fetchRequest = NSFetchRequest(entityName: "Events")
-        //let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
-        //fetchRequest.sortDescriptors = [sortDescriptor]
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         var fetchResults = managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as? [Events]
         events = fetchResults!
         
@@ -66,7 +74,7 @@ class TableViewController: UITableViewController {
 
         cell.name.text = events[indexPath.row].name
         cell.thumbnail.image = UIImage(data: events[indexPath.row].thumbnail)
-        cell.date.text = "\(events[indexPath.row].date)"
+        cell.date.text = formatDate(events[indexPath.row].date)
         cell.reason.text = events[indexPath.row].reason
         cell.thumbnail.layer.masksToBounds = true
         cell.thumbnail.layer.cornerRadius = cell.thumbnail.bounds.size.width / 2
@@ -74,6 +82,14 @@ class TableViewController: UITableViewController {
         cell.thumbnail.layer.borderColor = UIColor.grayColor().CGColor
         cell.thumbnail.highlighted = true
         return cell
+    }
+    
+    func formatDate(date:NSDate) ->String{
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.LongStyle
+        formatter.timeStyle = .LongStyle
+        let dateString = formatter.stringFromDate(date)
+        return dateString
     }
     
 
@@ -93,14 +109,30 @@ class TableViewController: UITableViewController {
             managedObjectContext?.deleteObject(events[indexPath.row])
             managedObjectContext?.save(nil)
             fetch()
+            var notifications = UIApplication.sharedApplication().scheduledLocalNotifications as[UILocalNotification]
+            for notification in notifications{
+                if let info = notification.userInfo{
+                    var id = info["id"] as String
+                    if id == events[indexPath.row].id{
+                        UIApplication.sharedApplication().cancelLocalNotification(notification)
+                        println("delete one")
+                    }
+                }
+            }
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
             
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toNewEvent" {
+            let destinationViewController:ViewController = segue.destinationViewController as ViewController
+            destinationViewController.delegate = self
+        }
+    }
 
     /*
     // Override to support rearranging the table view.

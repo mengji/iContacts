@@ -272,9 +272,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Events" id="oBw-ic-byx">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="PwO-eg-l3m">
+                            <connections>
+                                <action selector="refresh:" destination="xBM-q1-rgy" id="ETL-fm-vIc"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="WOp-5j-HVv">
                             <connections>
-                                <segue destination="bgT-YF-e9F" kind="push" id="0xG-MO-5mq"/>
+                                <segue destination="bgT-YF-e9F" kind="push" identifier="toNewEvent" id="0xG-MO-5mq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

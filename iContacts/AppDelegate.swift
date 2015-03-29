@@ -134,9 +134,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         if application.applicationState == .Active{
+            var id = ""
+            if let info = notification.userInfo{
+                id = info["id"] as String
+            }
+            
             let alert = UIAlertController(title: "iContact", message: "test", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
-            alert.addAction(UIAlertAction(title: "Call", style: UIAlertActionStyle.Default, handler: {_ in self.call("test")}))
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: {_ in
+                self.deleteNotification(id)}))
+            alert.addAction(UIAlertAction(title: "Call", style: UIAlertActionStyle.Default, handler: {_ in self.call("test")
+                self.deleteNotification(id)
+            }))
             
             window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)        }
     }
