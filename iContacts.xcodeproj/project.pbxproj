@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		177B52E5F89328635BAB1EC1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F862BD7FAEBE0B9573CAE4D5 /* libPods.a */; };
-		9735703E1AC348B90062D650 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9735703D1AC348B90062D650 /* Events.swift */; };
 		97670E571ABCC12B000690CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97670E561ABCC12B000690CE /* AppDelegate.swift */; };
 		97670E5A1ABCC12B000690CE /* iContacts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 97670E581ABCC12B000690CE /* iContacts.xcdatamodeld */; };
 		97670E5C1ABCC12B000690CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97670E5B1ABCC12B000690CE /* ViewController.swift */; };
@@ -28,6 +27,13 @@
 		978F1FDF1ABE14EF00191803 /* contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978F1FDE1ABE14EF00191803 /* contact.swift */; };
 		978F1FE11ABE308500191803 /* contactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978F1FE01ABE308500191803 /* contactTableViewController.swift */; };
 		978F1FE31ABE400000191803 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 978F1FE21ABE400000191803 /* Main.storyboard */; };
+		979035EE1ACF89B30006E970 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979035ED1ACF89B30006E970 /* Events.swift */; };
+		979035F01ACF89B40006E970 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979035EF1ACF89B40006E970 /* Groups.swift */; };
+		97929FD51AC8DD88003ADD49 /* IGLDropDownItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 97929FD21AC8DD88003ADD49 /* IGLDropDownItem.m */; };
+		97929FD61AC8DD88003ADD49 /* IGLDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 97929FD41AC8DD88003ADD49 /* IGLDropDownMenu.m */; };
+		9792A4541ACDF22F00365D07 /* GroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9792A4531ACDF22F00365D07 /* GroupTableViewController.swift */; };
+		9792A4561ACDF4D800365D07 /* NotClickedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9792A4551ACDF4D800365D07 /* NotClickedCell.swift */; };
+		9792A4581ACDF4EC00365D07 /* ClickedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9792A4571ACDF4EC00365D07 /* ClickedTableViewCell.swift */; };
 		979389831AC0F06700DF9A49 /* selectPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979389821AC0F06700DF9A49 /* selectPersonViewController.swift */; };
 		9794B96B1AC4B8AC006CFE92 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9794B96A1AC4B8AC006CFE92 /* EventCell.swift */; };
 		9794B96D1AC509C0006CFE92 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9794B96C1AC509C0006CFE92 /* TableViewController.swift */; };
@@ -45,7 +51,6 @@
 
 /* Begin PBXFileReference section */
 		3243A20339A4C7C60F211578 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		9735703D1AC348B90062D650 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		97670E511ABCC12B000690CE /* iContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97670E551ABCC12B000690CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97670E561ABCC12B000690CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +75,15 @@
 		978F1FDE1ABE14EF00191803 /* contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contact.swift; sourceTree = "<group>"; };
 		978F1FE01ABE308500191803 /* contactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contactTableViewController.swift; sourceTree = "<group>"; };
 		978F1FE21ABE400000191803 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		979035ED1ACF89B30006E970 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		979035EF1ACF89B40006E970 /* Groups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
+		97929FD11AC8DD88003ADD49 /* IGLDropDownItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGLDropDownItem.h; sourceTree = "<group>"; };
+		97929FD21AC8DD88003ADD49 /* IGLDropDownItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGLDropDownItem.m; sourceTree = "<group>"; };
+		97929FD31AC8DD88003ADD49 /* IGLDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGLDropDownMenu.h; sourceTree = "<group>"; };
+		97929FD41AC8DD88003ADD49 /* IGLDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGLDropDownMenu.m; sourceTree = "<group>"; };
+		9792A4531ACDF22F00365D07 /* GroupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTableViewController.swift; sourceTree = "<group>"; };
+		9792A4551ACDF4D800365D07 /* NotClickedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotClickedCell.swift; sourceTree = "<group>"; };
+		9792A4571ACDF4EC00365D07 /* ClickedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickedTableViewCell.swift; sourceTree = "<group>"; };
 		979389821AC0F06700DF9A49 /* selectPersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = selectPersonViewController.swift; sourceTree = "<group>"; };
 		9794B96A1AC4B8AC006CFE92 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		9794B96C1AC509C0006CFE92 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -137,14 +151,19 @@
 				978F1FE21ABE400000191803 /* Main.storyboard */,
 				9794B96A1AC4B8AC006CFE92 /* EventCell.swift */,
 				9794B96C1AC509C0006CFE92 /* TableViewController.swift */,
+				9792A4531ACDF22F00365D07 /* GroupTableViewController.swift */,
+				9792A4551ACDF4D800365D07 /* NotClickedCell.swift */,
+				9792A4571ACDF4EC00365D07 /* ClickedTableViewCell.swift */,
 				978F1FE01ABE308500191803 /* contactTableViewController.swift */,
 				978F1FDE1ABE14EF00191803 /* contact.swift */,
 				979389821AC0F06700DF9A49 /* selectPersonViewController.swift */,
 				97670E791ABCCA3D000690CE /* RAMAnimatedTabBarController */,
 				97670E601ABCC12B000690CE /* Images.xcassets */,
+				97929FD01AC8DD88003ADD49 /* IGLDropDownMenu */,
 				97670E621ABCC12B000690CE /* LaunchScreen.xib */,
 				97670E581ABCC12B000690CE /* iContacts.xcdatamodeld */,
-				9735703D1AC348B90062D650 /* Events.swift */,
+				979035EF1ACF89B40006E970 /* Groups.swift */,
+				979035ED1ACF89B30006E970 /* Events.swift */,
 				97670E541ABCC12B000690CE /* Supporting Files */,
 				978ED1151ABF6B9900D5B699 /* iContacts-Bridging-Header.h */,
 			);
@@ -236,6 +255,17 @@
 				97670E841ABCCA3D000690CE /* RAMTransitionItemAnimation.swift */,
 			);
 			path = TransitionAniamtions;
+			sourceTree = "<group>";
+		};
+		97929FD01AC8DD88003ADD49 /* IGLDropDownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				97929FD11AC8DD88003ADD49 /* IGLDropDownItem.h */,
+				97929FD21AC8DD88003ADD49 /* IGLDropDownItem.m */,
+				97929FD31AC8DD88003ADD49 /* IGLDropDownMenu.h */,
+				97929FD41AC8DD88003ADD49 /* IGLDropDownMenu.m */,
+			);
+			path = IGLDropDownMenu;
 			sourceTree = "<group>";
 		};
 		E6D8DC66E43477A10A65869E /* Pods */ = {
@@ -383,15 +413,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				979035F01ACF89B40006E970 /* Groups.swift in Sources */,
 				97670E5C1ABCC12B000690CE /* ViewController.swift in Sources */,
 				97670E8C1ABCCA3D000690CE /* RAMAnimatedTabBarController.swift in Sources */,
 				9794B96D1AC509C0006CFE92 /* TableViewController.swift in Sources */,
 				97670E5A1ABCC12B000690CE /* iContacts.xcdatamodeld in Sources */,
+				9792A4541ACDF22F00365D07 /* GroupTableViewController.swift in Sources */,
 				979389831AC0F06700DF9A49 /* selectPersonViewController.swift in Sources */,
-				9735703E1AC348B90062D650 /* Events.swift in Sources */,
+				97929FD61AC8DD88003ADD49 /* IGLDropDownMenu.m in Sources */,
 				97670E8B1ABCCA3D000690CE /* RAMTransitionItemAnimation.swift in Sources */,
 				978F1FDF1ABE14EF00191803 /* contact.swift in Sources */,
 				97670E8D1ABCCA3D000690CE /* RAMItemAnimationProtocol.swift in Sources */,
+				97929FD51AC8DD88003ADD49 /* IGLDropDownItem.m in Sources */,
+				979035EE1ACF89B30006E970 /* Events.swift in Sources */,
 				97670E571ABCC12B000690CE /* AppDelegate.swift in Sources */,
 				97670E8A1ABCCA3D000690CE /* RAMRotationAnimation.swift in Sources */,
 				978F1FE11ABE308500191803 /* contactTableViewController.swift in Sources */,
@@ -399,6 +433,8 @@
 				97670E881ABCCA3D000690CE /* RAMFrameItemAnimation.swift in Sources */,
 				97670E891ABCCA3D000690CE /* RAMFumeAnimation.swift in Sources */,
 				97670E871ABCCA3D000690CE /* RAMBounceAnimation.swift in Sources */,
+				9792A4561ACDF4D800365D07 /* NotClickedCell.swift in Sources */,
+				9792A4581ACDF4EC00365D07 /* ClickedTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

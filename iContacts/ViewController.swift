@@ -13,7 +13,11 @@ protocol EventsViewRefreshReminder:class {
     func tableNeedReload()
 }
 
-class ViewController: UIViewController, ViewControllerDataSource{
+class ViewController: UIViewController, ViewControllerDataSource, IGLDropDownMenuDelegate{
+    
+    var seletedPhone = "No Seleted"
+    @IBOutlet var dropDown: IGLDropDownMenu!
+        
     
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     var dateSeleted: NSDate = NSDate()
@@ -26,11 +30,31 @@ class ViewController: UIViewController, ViewControllerDataSource{
                 } else {
                     thumbnail.image = UIImage(named: "placeholder")
                 }
-                phone.text = String(local?.phones[0] as NSString)
+                dropDown.menuText = "Choose Phone Number"
+                var items:[IGLDropDownItem] = [IGLDropDownItem]()
+                for (var i = 0;i < local?.phones.count;i++) {
+                    var item = IGLDropDownItem()
+                    item.text = local?.phones[i] as NSString
+                    items.append(item)
+                }
+                dropDown.dropDownItems = items
+                dropDown.gutterY = 5;
+                dropDown.type = IGLDropDownMenuType.SlidingInBoth
+                dropDown.itemAnimationDelay = 0.1;
+                dropDown.delegate = self
+                dropDown.reloadView()
+                //phone.text = String(local?.phones[0] as NSString)
                 name.text = local?.compositeName
             }
         }
     }
+    
+    func dropDownMenu(dropDownMenu: IGLDropDownMenu!, selectedItemAtIndex index: Int) {
+        var item:IGLDropDownItem = dropDown.dropDownItems[index] as IGLDropDownItem
+        seletedPhone = item.text
+    }
+    
+    
     var delegate:EventsViewRefreshReminder?
     
 
@@ -73,10 +97,10 @@ class ViewController: UIViewController, ViewControllerDataSource{
 
     
     @IBAction func createNewEvents(sender: UIButton) {
-        if local != nil{
+        if local != nil && seletedPhone != "No Seleted"{
             if let moc = self.managedObjectContext{
                 id = "\(NSDate())"
-                Events.createInManagedObjectContext(moc, contact: local!, date: dateSeleted, phone: phone.text!,id: id,reason:reason.text)
+                Events.createInManagedObjectContext(moc, contact: local!, date: dateSeleted, phone: seletedPhone/*phone.text!*/,id: id,reason:reason.text)
                 
             }
             if notification.on {
@@ -112,7 +136,7 @@ class ViewController: UIViewController, ViewControllerDataSource{
 
     @IBOutlet weak var notification: UISwitch!
     @IBOutlet weak var reason: UITextField!
-    @IBOutlet weak var phone: UILabel!
+    //@IBOutlet weak var phone: UILabel!
 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -121,5 +145,6 @@ class ViewController: UIViewController, ViewControllerDataSource{
             destinationViewController.delegate = self
         }
     }
+    
 }
 

@@ -2,7 +2,7 @@
 //  Events.swift
 //  iContacts
 //
-//  Created by Xiangrui on 3/25/15.
+//  Created by Xiangrui on 4/3/15.
 //  Copyright (c) 2015 Xiangrui. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import CoreData
 
 @objc(Events)
 class Events: NSManagedObject {
-
+    
     @NSManaged var name: String
     @NSManaged var phone: String
     @NSManaged var thumbnail: NSData
@@ -33,9 +33,9 @@ class Events: NSManagedObject {
         newEvent.id = id
         newEvent.reason = reason
         moc.save(nil)
-    
+        
         return newEvent
         
     }
-
+    
 }

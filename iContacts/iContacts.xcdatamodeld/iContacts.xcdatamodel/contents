@@ -8,7 +8,12 @@
         <attribute name="reason" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumbnail" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
+    <entity name="Groups" representedClassName="Groups" syncable="YES">
+        <attribute name="groupmember" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Events" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Groups" positionX="-63" positionY="27" width="128" height="73"/>
     </elements>
 </model>

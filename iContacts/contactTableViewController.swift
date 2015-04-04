@@ -203,7 +203,11 @@ class contactTableViewController: UITableViewController, ABPersonViewControllerD
     
     func refresh(){
         myBook = getSysContacts()
-        
+        var error:Unmanaged<CFError>?
+        var addressbook1: ABAddressBook = ABAddressBookCreateWithOptions(nil, &error).takeRetainedValue()
+        var addressbook2: ABAddressBook = ABAddressBookCreateWithOptions(nil, &error).takeRetainedValue()
+        println(addressbook1)
+        println(addressbook2)
         //test()
         self.tableView.reloadData()
     }
