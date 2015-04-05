@@ -17,11 +17,10 @@ class GroupTableViewController: UITableViewController {
     var openedGroup = Array<String>()
     let addressBook = APAddressBook()
     var contacts = Array<APContact>()
-    
+    var array = [MyGroup]()
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     
     func loaddata(){
-        var array = [MyGroup]()
         for contact in contacts{
             let a = MyGroup(contact: contact)
             array.append(a)
@@ -30,8 +29,52 @@ class GroupTableViewController: UITableViewController {
     }
     
     @IBAction func addGroup(sender: UIBarButtonItem) {
-        var alert = UIAlertController
+        showAlert("What is the Name of the New Group?")
     }
+    
+    func showAlert(message:String){
+        var alert = UIAlertController(title: "Add New Group", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Add", style: UIAlertActionStyle.Default, handler: {_ in self.checkIfNewGroupNameValid(alert)}))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+        alert.addTextFieldWithConfigurationHandler({
+            (textfield) in
+            textfield.placeholder = "New Group Name"
+        })
+        
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func checkIfNewGroupNameValid(alert:UIAlertController){
+        let textField = alert.textFields as [UITextField]
+        if textField.count > 0{
+            if textField[0].text == "" {
+                self.showAlert("Group Name Cannot Be Empty")
+            } else if (self.checkGroupNameDup(textField[0].text) == false){
+                self.showAlert("Group Name Already Exist")
+            } else {
+                self.createNewGroup(textField[0].text)
+                self.fetch()
+            }
+        }
+    }
+    
+    func createNewGroup(groupName:String){
+        Groups.createInManagedObjectContext(managedObjectContext!, name: groupName, people: array)
+    }
+    
+    func checkGroupNameDup(groupName:String) -> Bool{
+        for (existName,_) in groups{
+            if existName == groupName{
+                return false
+            }
+        }
+        return true
+    }
+    
+    
+    
+    
     
     
     func fetch(){
