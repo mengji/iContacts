@@ -29,6 +29,7 @@
 		978F1FE31ABE400000191803 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 978F1FE21ABE400000191803 /* Main.storyboard */; };
 		979035EE1ACF89B30006E970 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979035ED1ACF89B30006E970 /* Events.swift */; };
 		979035F01ACF89B40006E970 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979035EF1ACF89B40006E970 /* Groups.swift */; };
+		9791F8CC1AD0BB0000C5F077 /* MyGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9791F8CB1AD0BB0000C5F077 /* MyGroup.swift */; };
 		97929FD51AC8DD88003ADD49 /* IGLDropDownItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 97929FD21AC8DD88003ADD49 /* IGLDropDownItem.m */; };
 		97929FD61AC8DD88003ADD49 /* IGLDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 97929FD41AC8DD88003ADD49 /* IGLDropDownMenu.m */; };
 		9792A4541ACDF22F00365D07 /* GroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9792A4531ACDF22F00365D07 /* GroupTableViewController.swift */; };
@@ -77,6 +78,7 @@
 		978F1FE21ABE400000191803 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		979035ED1ACF89B30006E970 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		979035EF1ACF89B40006E970 /* Groups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
+		9791F8CB1AD0BB0000C5F077 /* MyGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGroup.swift; sourceTree = "<group>"; };
 		97929FD11AC8DD88003ADD49 /* IGLDropDownItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGLDropDownItem.h; sourceTree = "<group>"; };
 		97929FD21AC8DD88003ADD49 /* IGLDropDownItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGLDropDownItem.m; sourceTree = "<group>"; };
 		97929FD31AC8DD88003ADD49 /* IGLDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGLDropDownMenu.h; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				978F1FE21ABE400000191803 /* Main.storyboard */,
 				9794B96A1AC4B8AC006CFE92 /* EventCell.swift */,
 				9794B96C1AC509C0006CFE92 /* TableViewController.swift */,
+				9791F8CB1AD0BB0000C5F077 /* MyGroup.swift */,
 				9792A4531ACDF22F00365D07 /* GroupTableViewController.swift */,
 				9792A4551ACDF4D800365D07 /* NotClickedCell.swift */,
 				9792A4571ACDF4EC00365D07 /* ClickedTableViewCell.swift */,
@@ -429,6 +432,7 @@
 				97670E571ABCC12B000690CE /* AppDelegate.swift in Sources */,
 				97670E8A1ABCCA3D000690CE /* RAMRotationAnimation.swift in Sources */,
 				978F1FE11ABE308500191803 /* contactTableViewController.swift in Sources */,
+				9791F8CC1AD0BB0000C5F077 /* MyGroup.swift in Sources */,
 				9794B96B1AC4B8AC006CFE92 /* EventCell.swift in Sources */,
 				97670E881ABCCA3D000690CE /* RAMFrameItemAnimation.swift in Sources */,
 				97670E891ABCCA3D000690CE /* RAMFumeAnimation.swift in Sources */,

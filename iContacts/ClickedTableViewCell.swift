@@ -23,10 +23,10 @@ class ClickedTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func makeCell(contact:APContact){
-        name.text = contact.compositeName
+    func makeCell(contact:MyGroup){
+        name.text = contact.name
         if let image = contact.thumbnail{
-            thumbnail.image = contact.thumbnail
+            thumbnail.image = UIImage(data: image)
         } else {
             thumbnail.image = UIImage(named: "placeholder")
         }

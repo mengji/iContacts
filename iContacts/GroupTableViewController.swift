@@ -9,25 +9,32 @@
 import UIKit
 import CoreData
 
+
 class GroupTableViewController: UITableViewController {
     var dic = Array<String>()
     var seleted:NSIndexPath? = nil
-    var groups = Array<(String, Array<APContact>)>()
+    var groups = Array<(String, Array<MyGroup>)>()
     var openedGroup = Array<String>()
     let addressBook = APAddressBook()
     var contacts = Array<APContact>()
+    
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     
     func loaddata(){
-
-        Groups.createInManagedObjectContext(managedObjectContext!, name: "friends", people: contacts)
-        Groups.createInManagedObjectContext(managedObjectContext!, name: "time", people: contacts)
-        //fetch()
+        var array = [MyGroup]()
+        for contact in contacts{
+            let a = MyGroup(contact: contact)
+            array.append(a)
+        }
+        fetch()
+    }
+    
+    @IBAction func addGroup(sender: UIBarButtonItem) {
+        var alert = UIAlertController
     }
     
     
-    
-    /*func fetch(){
+    func fetch(){
         let fetchRequest = NSFetchRequest(entityName: "Groups")
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
@@ -35,13 +42,13 @@ class GroupTableViewController: UITableViewController {
         groups.removeAll(keepCapacity: true)
         if let result = fetchResults{
             for g in result{
-                let member = (g.name,g.groupmember as Array<APContact>)
+                let member = (g.name,g.groupmember as Array<MyGroup>)
                 self.groups.append(member)
             }
         }
         tableView.reloadData()
 
-    }*/
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,7 +60,7 @@ class GroupTableViewController: UITableViewController {
                 if contacts != nil{
                     println(contacts.count)
                     self.contacts = contacts as [APContact]
-                    //self.loaddata()
+                    self.loaddata()
                 }
                 else if error != nil {
                     // show error
@@ -144,7 +151,6 @@ class GroupTableViewController: UITableViewController {
             return 65
         }
     }
-    
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         var headerView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 50))

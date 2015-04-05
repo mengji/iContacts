@@ -15,7 +15,7 @@ class Groups: NSManagedObject {
     @NSManaged var groupmember: AnyObject
     @NSManaged var name: String
     
-    class func createInManagedObjectContext(moc: NSManagedObjectContext, name:String, people:Array<APContact>) -> Groups {
+    class func createInManagedObjectContext(moc: NSManagedObjectContext, name:String, people:[MyGroup]) -> Groups {
         let newEvent = NSEntityDescription.insertNewObjectForEntityForName("Groups", inManagedObjectContext: moc) as Groups
         newEvent.name = name
         newEvent.groupmember = people
