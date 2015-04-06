@@ -35,6 +35,9 @@
 		9792A4541ACDF22F00365D07 /* GroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9792A4531ACDF22F00365D07 /* GroupTableViewController.swift */; };
 		9792A4561ACDF4D800365D07 /* NotClickedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9792A4551ACDF4D800365D07 /* NotClickedCell.swift */; };
 		9792A4581ACDF4EC00365D07 /* ClickedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9792A4571ACDF4EC00365D07 /* ClickedTableViewCell.swift */; };
+		979352B11AD1D53600E8229D /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979352B01AD1D53600E8229D /* SectionCell.swift */; };
+		979352B31AD1F77700E8229D /* SectionCellClicked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979352B21AD1F77700E8229D /* SectionCellClicked.swift */; };
+		979352B71AD2212900E8229D /* SelectGroupMemberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979352B61AD2212900E8229D /* SelectGroupMemberController.swift */; };
 		979389831AC0F06700DF9A49 /* selectPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979389821AC0F06700DF9A49 /* selectPersonViewController.swift */; };
 		9794B96B1AC4B8AC006CFE92 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9794B96A1AC4B8AC006CFE92 /* EventCell.swift */; };
 		9794B96D1AC509C0006CFE92 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9794B96C1AC509C0006CFE92 /* TableViewController.swift */; };
@@ -86,6 +89,9 @@
 		9792A4531ACDF22F00365D07 /* GroupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTableViewController.swift; sourceTree = "<group>"; };
 		9792A4551ACDF4D800365D07 /* NotClickedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotClickedCell.swift; sourceTree = "<group>"; };
 		9792A4571ACDF4EC00365D07 /* ClickedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickedTableViewCell.swift; sourceTree = "<group>"; };
+		979352B01AD1D53600E8229D /* SectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionCell.swift; sourceTree = "<group>"; };
+		979352B21AD1F77700E8229D /* SectionCellClicked.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionCellClicked.swift; sourceTree = "<group>"; };
+		979352B61AD2212900E8229D /* SelectGroupMemberController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectGroupMemberController.swift; sourceTree = "<group>"; };
 		979389821AC0F06700DF9A49 /* selectPersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = selectPersonViewController.swift; sourceTree = "<group>"; };
 		9794B96A1AC4B8AC006CFE92 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		9794B96C1AC509C0006CFE92 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -151,8 +157,10 @@
 				97670E561ABCC12B000690CE /* AppDelegate.swift */,
 				97670E5B1ABCC12B000690CE /* ViewController.swift */,
 				978F1FE21ABE400000191803 /* Main.storyboard */,
+				979352B21AD1F77700E8229D /* SectionCellClicked.swift */,
 				9794B96A1AC4B8AC006CFE92 /* EventCell.swift */,
 				9794B96C1AC509C0006CFE92 /* TableViewController.swift */,
+				979352B01AD1D53600E8229D /* SectionCell.swift */,
 				9791F8CB1AD0BB0000C5F077 /* MyGroup.swift */,
 				9792A4531ACDF22F00365D07 /* GroupTableViewController.swift */,
 				9792A4551ACDF4D800365D07 /* NotClickedCell.swift */,
@@ -160,6 +168,7 @@
 				978F1FE01ABE308500191803 /* contactTableViewController.swift */,
 				978F1FDE1ABE14EF00191803 /* contact.swift */,
 				979389821AC0F06700DF9A49 /* selectPersonViewController.swift */,
+				979352B61AD2212900E8229D /* SelectGroupMemberController.swift */,
 				97670E791ABCCA3D000690CE /* RAMAnimatedTabBarController */,
 				97670E601ABCC12B000690CE /* Images.xcassets */,
 				97929FD01AC8DD88003ADD49 /* IGLDropDownMenu */,
@@ -422,11 +431,14 @@
 				9794B96D1AC509C0006CFE92 /* TableViewController.swift in Sources */,
 				97670E5A1ABCC12B000690CE /* iContacts.xcdatamodeld in Sources */,
 				9792A4541ACDF22F00365D07 /* GroupTableViewController.swift in Sources */,
+				979352B31AD1F77700E8229D /* SectionCellClicked.swift in Sources */,
 				979389831AC0F06700DF9A49 /* selectPersonViewController.swift in Sources */,
 				97929FD61AC8DD88003ADD49 /* IGLDropDownMenu.m in Sources */,
 				97670E8B1ABCCA3D000690CE /* RAMTransitionItemAnimation.swift in Sources */,
+				979352B11AD1D53600E8229D /* SectionCell.swift in Sources */,
 				978F1FDF1ABE14EF00191803 /* contact.swift in Sources */,
 				97670E8D1ABCCA3D000690CE /* RAMItemAnimationProtocol.swift in Sources */,
+				979352B71AD2212900E8229D /* SelectGroupMemberController.swift in Sources */,
 				97929FD51AC8DD88003ADD49 /* IGLDropDownItem.m in Sources */,
 				979035EE1ACF89B30006E970 /* Events.swift in Sources */,
 				97670E571ABCC12B000690CE /* AppDelegate.swift in Sources */,

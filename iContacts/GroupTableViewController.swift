@@ -13,6 +13,7 @@ import CoreData
 class GroupTableViewController: UITableViewController {
     var dic = Array<String>()
     var seleted:NSIndexPath? = nil
+    var seletedSection:Int? = nil
     var groups = Array<(String, Array<MyGroup>)>()
     var openedGroup = Array<String>()
     let addressBook = APAddressBook()
@@ -21,10 +22,6 @@ class GroupTableViewController: UITableViewController {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     
     func loaddata(){
-        for contact in contacts{
-            let a = MyGroup(contact: contact)
-            array.append(a)
-        }
         fetch()
     }
     
@@ -95,20 +92,7 @@ class GroupTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.addressBook.fieldsMask = APContactField.Default | APContactField.Thumbnail | APContactField.CompositeName | APContactField.Emails
-        self.addressBook.sortDescriptors = [NSSortDescriptor(key: "compositeName", ascending: true)]
 
-        self.addressBook.loadContacts(
-            { (contacts: [AnyObject]!, error: NSError!) in
-                if contacts != nil{
-                    println(contacts.count)
-                    self.contacts = contacts as [APContact]
-                    self.loaddata()
-                }
-                else if error != nil {
-                    // show error
-                }
-        })
         
         
 
@@ -118,7 +102,7 @@ class GroupTableViewController: UITableViewController {
         
         
 
-        tableView.reloadData()
+        fetch()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -162,6 +146,7 @@ class GroupTableViewController: UITableViewController {
             cell.makeCell(groupers[indexPath.row])
             return cell
         }
+        
 
         
 
@@ -196,7 +181,7 @@ class GroupTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var headerView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 50))
+        /*var headerView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 50))
         headerView.backgroundColor = UIColor.lightGrayColor()
         
         let mylabel = UILabel(frame: CGRectMake(16, 2, 200, 30))
@@ -215,9 +200,61 @@ class GroupTableViewController: UITableViewController {
         headerView.addSubview(myButton)
         headerView.layer.addSublayer(seperator)
         
-        return headerView
-    
+        return headerView*/
         
+        
+
+    
+        let (groupname, groupmember) = groups[section]
+        if seletedSection != nil && seletedSection == section {
+            let cell = tableView.dequeueReusableCellWithIdentifier("sectionCellClicked") as SectionCellClicked
+            cell.groupName.text = groupname
+            let button = cell.openGroup
+            button.tag = section
+            button.addTarget(self, action: "tapHeader:", forControlEvents: UIControlEvents.TouchUpInside)
+            let openOptionButton = cell.groupOption
+            openOptionButton.tag = section
+            openOptionButton.addTarget(self, action: "tapOption:", forControlEvents: UIControlEvents.TouchUpInside)
+            let editGroupButton = cell.EditGroup
+            editGroupButton.tag = section
+            while(cell.contentView.gestureRecognizers?.count > 0){
+                cell.contentView.gestureRecognizers?.removeAll(keepCapacity: false)
+            }
+            return cell.contentView
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("sectionCell") as SectionCell
+            cell.groupName.text = groupname
+            let button = cell.openGroup
+            button.tag = section
+            button.addTarget(self, action: "tapHeader:", forControlEvents: UIControlEvents.TouchUpInside)
+            let openOptionButton = cell.groupOption
+            openOptionButton.tag = section
+            openOptionButton.addTarget(self, action: "tapOption:", forControlEvents: UIControlEvents.TouchUpInside)
+            while(cell.contentView.gestureRecognizers?.count > 0){
+                cell.contentView.gestureRecognizers?.removeAll(keepCapacity: false)
+            }
+            return cell.contentView
+        }
+
+        
+    }
+    
+    func tapOption(sender:UIButton){
+        if seletedSection == nil {
+            seletedSection = sender.tag
+            tableView.reloadSections(NSIndexSet(index: sender.tag), withRowAnimation: UITableViewRowAnimation.Automatic)
+        } else {
+            if seletedSection == sender.tag {
+                seletedSection = nil
+                tableView.reloadSections(NSIndexSet(index: sender.tag), withRowAnimation: UITableViewRowAnimation.Fade)
+            } else {
+                var tmp:Int = seletedSection!
+                seletedSection = nil
+                tableView.reloadSections(NSIndexSet(index: tmp), withRowAnimation: UITableViewRowAnimation.Automatic)
+                seletedSection = sender.tag
+                tableView.reloadSections(NSIndexSet(index: sender.tag), withRowAnimation: UITableViewRowAnimation.Automatic)
+            }
+        }
     }
     
     func tapHeader(sender:UIButton){
@@ -228,15 +265,29 @@ class GroupTableViewController: UITableViewController {
             openedGroup.append(groupname)
         }
         tableView.reloadSections(NSIndexSet(index: sender.tag), withRowAnimation: UITableViewRowAnimation.Fade)
-            
-        
-        
-        
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        if seletedSection != nil && section == seletedSection{
+            return 109
+        } else {
+             return 60
+        }
+        
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "EditGroupMember" {
+            if let button = sender as? UIButton {
+                let destinationViewController:SelectGroupMemberController = segue.destinationViewController as SelectGroupMemberController
+                destinationViewController.information = groups[button.tag]
+                
+            }
+        }
+            
+    }
+    
+    
     
     
     

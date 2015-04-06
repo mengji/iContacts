@@ -232,11 +232,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iContacts/GroupTableViewController.swift"
-            timestampString = "449903565.839828"
+            timestampString = "449981287.011627"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -253,6 +253,138 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3"
             endingLineNumber = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iContacts/SelectGroupMemberController.swift"
+            timestampString = "449986661.973856"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "SelectGroupMemberController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iContacts.SelectGroupMemberController.contacts.getter : Swift.Array&lt;ObjectiveC.APContact&gt;"
+                  moduleName = "iContacts"
+                  urlString = "file:///Users/Xiangrui/Desktop/iContacts/iContacts/SelectGroupMemberController.swift"
+                  timestampString = "449981287.592565"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iContacts.SelectGroupMemberController.contacts.setter : Swift.Array&lt;ObjectiveC.APContact&gt;"
+                  moduleName = "iContacts"
+                  urlString = "file:///Users/Xiangrui/Desktop/iContacts/iContacts/SelectGroupMemberController.swift"
+                  timestampString = "449981287.592755"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iContacts.SelectGroupMemberController.contacts.materializeForSet : Swift.Array&lt;ObjectiveC.APContact&gt;"
+                  moduleName = "iContacts"
+                  urlString = "file:///Users/Xiangrui/Desktop/iContacts/iContacts/SelectGroupMemberController.swift"
+                  timestampString = "449981287.592869"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iContacts.SelectGroupMemberController.init (iContacts.SelectGroupMemberController.Type)(style : C.UITableViewStyle) -&gt; iContacts.SelectGroupMemberController"
+                  moduleName = "iContacts"
+                  urlString = "file:///Users/Xiangrui/Desktop/iContacts/iContacts/SelectGroupMemberController.swift"
+                  timestampString = "449981287.592984"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "146">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iContacts.SelectGroupMemberController.init (iContacts.SelectGroupMemberController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;ObjectiveC.NSBundle&gt;) -&gt; iContacts.SelectGroupMemberController"
+                  moduleName = "iContacts"
+                  urlString = "file:///Users/Xiangrui/Desktop/iContacts/iContacts/SelectGroupMemberController.swift"
+                  timestampString = "449981287.593091"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "214">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iContacts.SelectGroupMemberController.init (iContacts.SelectGroupMemberController.Type)() -&gt; iContacts.SelectGroupMemberController"
+                  moduleName = "iContacts"
+                  urlString = "file:///Users/Xiangrui/Desktop/iContacts/iContacts/SelectGroupMemberController.swift"
+                  timestampString = "449981287.593196"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "138">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iContacts.SelectGroupMemberController.init (iContacts.SelectGroupMemberController.Type)(coder : ObjectiveC.NSCoder) -&gt; iContacts.SelectGroupMemberController"
+                  moduleName = "iContacts"
+                  urlString = "file:///Users/Xiangrui/Desktop/iContacts/iContacts/SelectGroupMemberController.swift"
+                  timestampString = "449981287.593347"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "146">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iContacts/SelectGroupMemberController.swift"
+            timestampString = "449986661.973856"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
