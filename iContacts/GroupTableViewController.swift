@@ -10,19 +10,23 @@ import UIKit
 import CoreData
 
 
-class GroupTableViewController: UITableViewController {
-    var dic = Array<String>()
+class GroupTableViewController: UITableViewController, GroupTableViewRefreshReminder, UITextFieldDelegate{
     var seleted:NSIndexPath? = nil
     var seletedSection:Int? = nil
     var groups = Array<(String, Array<MyGroup>)>()
     var openedGroup = Array<String>()
     let addressBook = APAddressBook()
     var contacts = Array<APContact>()
-    var array = [MyGroup]()
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     
-    func loaddata(){
+
+    func tableNeedReload() {
         fetch()
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     @IBAction func addGroup(sender: UIBarButtonItem) {
@@ -36,6 +40,8 @@ class GroupTableViewController: UITableViewController {
         alert.addTextFieldWithConfigurationHandler({
             (textfield) in
             textfield.placeholder = "New Group Name"
+            textfield.delegate = self
+        
         })
         
         
@@ -57,7 +63,7 @@ class GroupTableViewController: UITableViewController {
     }
     
     func createNewGroup(groupName:String){
-        Groups.createInManagedObjectContext(managedObjectContext!, name: groupName, people: array)
+        Groups.createInManagedObjectContext(managedObjectContext!, name: groupName, people: [MyGroup]())
     }
     
     func checkGroupNameDup(groupName:String) -> Bool{
@@ -91,6 +97,8 @@ class GroupTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.backgroundView = UIImageView(image: UIImage(named: "blur.png"))
+        self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
         
 
         
@@ -139,11 +147,27 @@ class GroupTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("clicked", forIndexPath: indexPath) as ClickedTableViewCell
             let (_,groupers) = groups[indexPath.section]
             cell.makeCell(groupers[indexPath.row])
+            cell.backgroundColor = UIColor.clearColor()
+            
+            let seperator = UIView()
+            seperator.frame = CGRectMake(0, 64.5, UIScreen.mainScreen().bounds.width, 0.5)
+            seperator.backgroundColor = tableView.separatorColor
+            cell.contentView.addSubview(seperator)
+            
+            let background = UIImageView()
+            background.frame = CGRectMake(0, 65, UIScreen.mainScreen().bounds.width, 49)
+            //background.image = UIImage(named: "arrawBg.png")
+            background.backgroundColor = UIColor.grayColor()
+            cell.addSubview(background)
+            cell.sendSubviewToBack(background)
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("notClicked", forIndexPath: indexPath) as NotClickedCell
             let (_,groupers) = groups[indexPath.section]
             cell.makeCell(groupers[indexPath.row])
+            cell.backgroundColor = UIColor.clearColor()
+            
+
             return cell
         }
         
@@ -209,18 +233,45 @@ class GroupTableViewController: UITableViewController {
         if seletedSection != nil && seletedSection == section {
             let cell = tableView.dequeueReusableCellWithIdentifier("sectionCellClicked") as SectionCellClicked
             cell.groupName.text = groupname
+            
             let button = cell.openGroup
             button.tag = section
             button.addTarget(self, action: "tapHeader:", forControlEvents: UIControlEvents.TouchUpInside)
+            
             let openOptionButton = cell.groupOption
             openOptionButton.tag = section
             openOptionButton.addTarget(self, action: "tapOption:", forControlEvents: UIControlEvents.TouchUpInside)
+            
             let editGroupButton = cell.EditGroup
             editGroupButton.tag = section
+            
+            let removeButton = cell.removeGroup
+            removeButton.tag = section
+            removeButton.addTarget(self, action: "deleteGroup:", forControlEvents: UIControlEvents.TouchUpInside)
+            
             while(cell.contentView.gestureRecognizers?.count > 0){
                 cell.contentView.gestureRecognizers?.removeAll(keepCapacity: false)
             }
+            let seperator = UIView()
+            seperator.frame = CGRectMake(0, 59.5, UIScreen.mainScreen().bounds.width, 0.5)
+            seperator.backgroundColor = tableView.separatorColor
+            cell.contentView.addSubview(seperator)
+            
+            let seperator2 = UIView()
+            seperator2.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 0.5)
+            seperator2.backgroundColor = tableView.separatorColor
+            cell.contentView.addSubview(seperator2)
+            
+            let background = UIImageView()
+            background.frame = CGRectMake(0, 60, UIScreen.mainScreen().bounds.width, 49)
+            //background.image = UIImage(named: "arrawBg.png")
+            background.backgroundColor = UIColor.grayColor()
+            cell.contentView.addSubview(background)
+            cell.contentView.sendSubviewToBack(background)
+            
+
             return cell.contentView
+            
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("sectionCell") as SectionCell
             cell.groupName.text = groupname
@@ -233,6 +284,16 @@ class GroupTableViewController: UITableViewController {
             while(cell.contentView.gestureRecognizers?.count > 0){
                 cell.contentView.gestureRecognizers?.removeAll(keepCapacity: false)
             }
+            let seperator = UIView()
+            seperator.frame = CGRectMake(0, 59.5, UIScreen.mainScreen().bounds.width, 0.5)
+            seperator.backgroundColor = tableView.separatorColor
+            cell.contentView.addSubview(seperator)
+            
+            let seperator2 = UIView()
+            seperator2.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 0.5)
+            seperator2.backgroundColor = tableView.separatorColor
+            cell.contentView.addSubview(seperator2)
+            
             return cell.contentView
         }
 
@@ -246,7 +307,7 @@ class GroupTableViewController: UITableViewController {
         } else {
             if seletedSection == sender.tag {
                 seletedSection = nil
-                tableView.reloadSections(NSIndexSet(index: sender.tag), withRowAnimation: UITableViewRowAnimation.Fade)
+                tableView.reloadSections(NSIndexSet(index: sender.tag), withRowAnimation: UITableViewRowAnimation.Automatic)
             } else {
                 var tmp:Int = seletedSection!
                 seletedSection = nil
@@ -255,6 +316,36 @@ class GroupTableViewController: UITableViewController {
                 tableView.reloadSections(NSIndexSet(index: sender.tag), withRowAnimation: UITableViewRowAnimation.Automatic)
             }
         }
+    }
+    
+    func deleteGroup(sender:UIButton){
+        let section = sender.tag
+        let (groupName,groupMember) = groups[section]
+        let fetchRequest = NSFetchRequest(entityName: "Groups")
+        let predicate = NSPredicate(format: "name == %@", groupName)
+        fetchRequest.predicate = predicate
+        var fetchResults = managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as [Groups]
+        println(fetchResults.count)
+        for g in fetchResults{
+            managedObjectContext?.deleteObject(g)
+        }
+        managedObjectContext?.save(nil)
+        
+        if seleted != nil && seleted?.section == section{
+            seleted = nil
+        }
+        
+        if seletedSection != nil && seletedSection == section {
+            seletedSection = nil
+        }
+        
+        if let index = find(openedGroup, groupName){
+            openedGroup.removeAtIndex(index)
+        }
+        
+        groups.removeAtIndex(section)
+        self.tableView.reloadData()
+        
     }
     
     func tapHeader(sender:UIButton){
@@ -281,6 +372,7 @@ class GroupTableViewController: UITableViewController {
             if let button = sender as? UIButton {
                 let destinationViewController:SelectGroupMemberController = segue.destinationViewController as SelectGroupMemberController
                 destinationViewController.information = groups[button.tag]
+                destinationViewController.delegate = self
                 
             }
         }

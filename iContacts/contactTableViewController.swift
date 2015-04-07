@@ -15,6 +15,8 @@ class contactTableViewController: UITableViewController, ABPersonViewControllerD
     var myBook = Array<Dictionary<String,AnyObject>>()
     let ap = APAddressBook()
     var addressBook:ABAddressBookRef?
+    
+    
 
     
     func getSysContacts() -> [[String:AnyObject]] {
@@ -201,13 +203,15 @@ class contactTableViewController: UITableViewController, ABPersonViewControllerD
 
     }
     
+    override func viewDidAppear(animated: Bool) {
+        refresh()
+    }
+    
+
+    
     func refresh(){
         myBook = getSysContacts()
         var error:Unmanaged<CFError>?
-        var addressbook1: ABAddressBook = ABAddressBookCreateWithOptions(nil, &error).takeRetainedValue()
-        var addressbook2: ABAddressBook = ABAddressBookCreateWithOptions(nil, &error).takeRetainedValue()
-        println(addressbook1)
-        println(addressbook2)
         //test()
         self.tableView.reloadData()
     }

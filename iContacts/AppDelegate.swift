@@ -135,14 +135,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         if application.applicationState == .Active{
             var id = ""
+            var reason = ""
+            var name = ""
+            var phone = ""
             if let info = notification.userInfo{
                 id = info["id"] as String
+                reason = info["reason"] as String
+                name = info["name"] as String
+                phone = info["phone"] as String
             }
             
-            let alert = UIAlertController(title: "iContact", message: "test", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: name, message: reason, preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: {_ in
                 self.deleteNotification(id)}))
-            alert.addAction(UIAlertAction(title: "Call", style: UIAlertActionStyle.Default, handler: {_ in self.call("test")
+            alert.addAction(UIAlertAction(title: "Call", style: UIAlertActionStyle.Default, handler: {_ in self.call(phone)
                 self.deleteNotification(id)
             }))
             
@@ -151,11 +157,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
         var id = ""
+        var phone = ""
         if let info = notification.userInfo {
             id = info["id"] as String
+            phone = info["phone"] as String
         }
         if identifier == "Call" {
-            call("test")
+            call(phone)
             deleteNotification(id)
         } else if identifier == "Decline" {
             deleteNotification(id)
@@ -187,8 +195,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func call(phoneNumber:String){
         //UIApplication.sharedApplication().openURL(NSURL(string: "tel://9809088798")!)
         window?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
-        if UIApplication.sharedApplication().canOpenURL(NSURL(string: "http://reddit.com")!){
-        UIApplication.sharedApplication().openURL(NSURL(string: "http://reddit.com")!)
+        if UIApplication.sharedApplication().canOpenURL(NSURL(string: "tel://\(phoneNumber)")!){
+        UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(phoneNumber)")!)
         } else {
             println("fail")
         }

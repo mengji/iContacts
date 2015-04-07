@@ -21,6 +21,8 @@ class SectionCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+
     @IBOutlet var openGroup: UIButton!
     @IBOutlet var groupOption: UIButton!
 }

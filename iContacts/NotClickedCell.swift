@@ -34,5 +34,13 @@ class NotClickedCell: UITableViewCell {
         }
         
     }
-
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.thumbnail.layer.masksToBounds = true
+        self.thumbnail.layer.cornerRadius = self.thumbnail.bounds.size.width / 2
+        self.thumbnail.layer.borderWidth = 2
+        self.thumbnail.layer.borderColor = UIColor.grayColor().CGColor
+        self.thumbnail.highlighted = true
+    }
 }

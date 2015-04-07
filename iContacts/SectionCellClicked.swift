@@ -13,6 +13,11 @@ class SectionCellClicked: UITableViewCell {
     @IBOutlet var EditGroup: UIButton!
     @IBOutlet var openGroup: UIButton!
     @IBOutlet var groupOption: UIButton!
+    
+
+    @IBOutlet var removeGroup: UIButton!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

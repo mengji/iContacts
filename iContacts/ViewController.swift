@@ -13,7 +13,7 @@ protocol EventsViewRefreshReminder:class {
     func tableNeedReload()
 }
 
-class ViewController: UIViewController, ViewControllerDataSource, IGLDropDownMenuDelegate{
+class ViewController: UIViewController, ViewControllerDataSource, IGLDropDownMenuDelegate, UITextFieldDelegate{
     
     var seletedPhone = "No Seleted"
     @IBOutlet var dropDown: IGLDropDownMenu!
@@ -49,6 +49,14 @@ class ViewController: UIViewController, ViewControllerDataSource, IGLDropDownMen
         }
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    
+
+    
     func dropDownMenu(dropDownMenu: IGLDropDownMenu!, selectedItemAtIndex index: Int) {
         var item:IGLDropDownItem = dropDown.dropDownItems[index] as IGLDropDownItem
         seletedPhone = item.text
@@ -82,6 +90,7 @@ class ViewController: UIViewController, ViewControllerDataSource, IGLDropDownMen
     @IBOutlet weak var name: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        reason.delegate = self
         
 
 
@@ -119,7 +128,7 @@ class ViewController: UIViewController, ViewControllerDataSource, IGLDropDownMen
     func createNotification(){
         var notification = UILocalNotification()
         notification.fireDate = dateSeleted
-        notification.userInfo = ["id": id]
+        notification.userInfo = ["id": id,"phone":seletedPhone,"reason":reason.text,"name":name.text!]
         //notification.applicationIconBadgeNumber = 1
         notification.alertBody = "Call \(local?.compositeName!) for \(reason.text)"
         notification.soundName = UILocalNotificationDefaultSoundName

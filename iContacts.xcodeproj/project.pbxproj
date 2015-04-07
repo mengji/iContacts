@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		177B52E5F89328635BAB1EC1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F862BD7FAEBE0B9573CAE4D5 /* libPods.a */; };
+		97067A3E1AD36AC4001BBFC0 /* blur.png in Resources */ = {isa = PBXBuildFile; fileRef = 97067A3D1AD36AC4001BBFC0 /* blur.png */; };
 		97670E571ABCC12B000690CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97670E561ABCC12B000690CE /* AppDelegate.swift */; };
 		97670E5A1ABCC12B000690CE /* iContacts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 97670E581ABCC12B000690CE /* iContacts.xcdatamodeld */; };
 		97670E5C1ABCC12B000690CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97670E5B1ABCC12B000690CE /* ViewController.swift */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		3243A20339A4C7C60F211578 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		97067A3D1AD36AC4001BBFC0 /* blur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blur.png; sourceTree = "<group>"; };
 		97670E511ABCC12B000690CE /* iContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97670E551ABCC12B000690CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97670E561ABCC12B000690CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -154,30 +156,20 @@
 		97670E531ABCC12B000690CE /* iContacts */ = {
 			isa = PBXGroup;
 			children = (
+				97E746EF1AD3DBD2003C0276 /* DataModels */,
 				97670E561ABCC12B000690CE /* AppDelegate.swift */,
-				97670E5B1ABCC12B000690CE /* ViewController.swift */,
+				97E746EA1AD3DB0E003C0276 /* BasicContactViewController */,
 				978F1FE21ABE400000191803 /* Main.storyboard */,
-				979352B21AD1F77700E8229D /* SectionCellClicked.swift */,
-				9794B96A1AC4B8AC006CFE92 /* EventCell.swift */,
-				9794B96C1AC509C0006CFE92 /* TableViewController.swift */,
-				979352B01AD1D53600E8229D /* SectionCell.swift */,
-				9791F8CB1AD0BB0000C5F077 /* MyGroup.swift */,
-				9792A4531ACDF22F00365D07 /* GroupTableViewController.swift */,
-				9792A4551ACDF4D800365D07 /* NotClickedCell.swift */,
-				9792A4571ACDF4EC00365D07 /* ClickedTableViewCell.swift */,
-				978F1FE01ABE308500191803 /* contactTableViewController.swift */,
-				978F1FDE1ABE14EF00191803 /* contact.swift */,
-				979389821AC0F06700DF9A49 /* selectPersonViewController.swift */,
-				979352B61AD2212900E8229D /* SelectGroupMemberController.swift */,
+				97E746EB1AD3DB51003C0276 /* EventsViewController */,
+				97E746EC1AD3DB79003C0276 /* GroupViewController */,
+				97067A3D1AD36AC4001BBFC0 /* blur.png */,
+				97E746ED1AD3DB9E003C0276 /* TableCells */,
 				97670E791ABCCA3D000690CE /* RAMAnimatedTabBarController */,
 				97670E601ABCC12B000690CE /* Images.xcassets */,
 				97929FD01AC8DD88003ADD49 /* IGLDropDownMenu */,
 				97670E621ABCC12B000690CE /* LaunchScreen.xib */,
 				97670E581ABCC12B000690CE /* iContacts.xcdatamodeld */,
-				979035EF1ACF89B40006E970 /* Groups.swift */,
-				979035ED1ACF89B30006E970 /* Events.swift */,
 				97670E541ABCC12B000690CE /* Supporting Files */,
-				978ED1151ABF6B9900D5B699 /* iContacts-Bridging-Header.h */,
 			);
 			path = iContacts;
 			sourceTree = "<group>";
@@ -185,6 +177,7 @@
 		97670E541ABCC12B000690CE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				978ED1151ABF6B9900D5B699 /* iContacts-Bridging-Header.h */,
 				97670E551ABCC12B000690CE /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -280,6 +273,56 @@
 			path = IGLDropDownMenu;
 			sourceTree = "<group>";
 		};
+		97E746EA1AD3DB0E003C0276 /* BasicContactViewController */ = {
+			isa = PBXGroup;
+			children = (
+				978F1FE01ABE308500191803 /* contactTableViewController.swift */,
+			);
+			name = BasicContactViewController;
+			sourceTree = "<group>";
+		};
+		97E746EB1AD3DB51003C0276 /* EventsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				97670E5B1ABCC12B000690CE /* ViewController.swift */,
+				979389821AC0F06700DF9A49 /* selectPersonViewController.swift */,
+				9794B96C1AC509C0006CFE92 /* TableViewController.swift */,
+			);
+			name = EventsViewController;
+			sourceTree = "<group>";
+		};
+		97E746EC1AD3DB79003C0276 /* GroupViewController */ = {
+			isa = PBXGroup;
+			children = (
+				979352B61AD2212900E8229D /* SelectGroupMemberController.swift */,
+				9792A4531ACDF22F00365D07 /* GroupTableViewController.swift */,
+			);
+			name = GroupViewController;
+			sourceTree = "<group>";
+		};
+		97E746ED1AD3DB9E003C0276 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				978F1FDE1ABE14EF00191803 /* contact.swift */,
+				9792A4571ACDF4EC00365D07 /* ClickedTableViewCell.swift */,
+				9792A4551ACDF4D800365D07 /* NotClickedCell.swift */,
+				979352B21AD1F77700E8229D /* SectionCellClicked.swift */,
+				9794B96A1AC4B8AC006CFE92 /* EventCell.swift */,
+				979352B01AD1D53600E8229D /* SectionCell.swift */,
+			);
+			name = TableCells;
+			sourceTree = "<group>";
+		};
+		97E746EF1AD3DBD2003C0276 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				9791F8CB1AD0BB0000C5F077 /* MyGroup.swift */,
+				979035ED1ACF89B30006E970 /* Events.swift */,
+				979035EF1ACF89B40006E970 /* Groups.swift */,
+			);
+			name = DataModels;
+			sourceTree = "<group>";
+		};
 		E6D8DC66E43477A10A65869E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				978ED1141ABF683C00D5B699 /* Podfile in Resources */,
+				97067A3E1AD36AC4001BBFC0 /* blur.png in Resources */,
 				978F1FE31ABE400000191803 /* Main.storyboard in Resources */,
 				97670E641ABCC12B000690CE /* LaunchScreen.xib in Resources */,
 				97670E611ABCC12B000690CE /* Images.xcassets in Resources */,

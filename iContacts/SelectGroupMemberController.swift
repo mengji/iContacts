@@ -8,6 +8,11 @@
 
 import UIKit
 import CoreData
+
+protocol GroupTableViewRefreshReminder:class{
+    func tableNeedReload()
+}
+
 class SelectGroupMemberController: UITableViewController {
     
     var information:(String, Array<MyGroup>)?
@@ -16,6 +21,7 @@ class SelectGroupMemberController: UITableViewController {
     var addressBook = APAddressBook()
     var contacts = Array<APContact>()
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+    var delegate:GroupTableViewRefreshReminder?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +47,10 @@ class SelectGroupMemberController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        delegate?.tableNeedReload()
     }
     
     override func viewWillDisappear(animated: Bool) {
