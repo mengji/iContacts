@@ -156,14 +156,24 @@
 		97670E531ABCC12B000690CE /* iContacts */ = {
 			isa = PBXGroup;
 			children = (
-				97E746EF1AD3DBD2003C0276 /* DataModels */,
+				9794B96C1AC509C0006CFE92 /* TableViewController.swift */,
+				979389821AC0F06700DF9A49 /* selectPersonViewController.swift */,
+				9791F8CB1AD0BB0000C5F077 /* MyGroup.swift */,
+				97670E5B1ABCC12B000690CE /* ViewController.swift */,
+				979035ED1ACF89B30006E970 /* Events.swift */,
+				979035EF1ACF89B40006E970 /* Groups.swift */,
 				97670E561ABCC12B000690CE /* AppDelegate.swift */,
-				97E746EA1AD3DB0E003C0276 /* BasicContactViewController */,
+				978F1FE01ABE308500191803 /* contactTableViewController.swift */,
+				979352B61AD2212900E8229D /* SelectGroupMemberController.swift */,
+				9792A4531ACDF22F00365D07 /* GroupTableViewController.swift */,
 				978F1FE21ABE400000191803 /* Main.storyboard */,
-				97E746EB1AD3DB51003C0276 /* EventsViewController */,
-				97E746EC1AD3DB79003C0276 /* GroupViewController */,
 				97067A3D1AD36AC4001BBFC0 /* blur.png */,
-				97E746ED1AD3DB9E003C0276 /* TableCells */,
+				978F1FDE1ABE14EF00191803 /* contact.swift */,
+				9792A4571ACDF4EC00365D07 /* ClickedTableViewCell.swift */,
+				9792A4551ACDF4D800365D07 /* NotClickedCell.swift */,
+				979352B21AD1F77700E8229D /* SectionCellClicked.swift */,
+				9794B96A1AC4B8AC006CFE92 /* EventCell.swift */,
+				979352B01AD1D53600E8229D /* SectionCell.swift */,
 				97670E791ABCCA3D000690CE /* RAMAnimatedTabBarController */,
 				97670E601ABCC12B000690CE /* Images.xcassets */,
 				97929FD01AC8DD88003ADD49 /* IGLDropDownMenu */,
@@ -271,56 +281,6 @@
 				97929FD41AC8DD88003ADD49 /* IGLDropDownMenu.m */,
 			);
 			path = IGLDropDownMenu;
-			sourceTree = "<group>";
-		};
-		97E746EA1AD3DB0E003C0276 /* BasicContactViewController */ = {
-			isa = PBXGroup;
-			children = (
-				978F1FE01ABE308500191803 /* contactTableViewController.swift */,
-			);
-			name = BasicContactViewController;
-			sourceTree = "<group>";
-		};
-		97E746EB1AD3DB51003C0276 /* EventsViewController */ = {
-			isa = PBXGroup;
-			children = (
-				97670E5B1ABCC12B000690CE /* ViewController.swift */,
-				979389821AC0F06700DF9A49 /* selectPersonViewController.swift */,
-				9794B96C1AC509C0006CFE92 /* TableViewController.swift */,
-			);
-			name = EventsViewController;
-			sourceTree = "<group>";
-		};
-		97E746EC1AD3DB79003C0276 /* GroupViewController */ = {
-			isa = PBXGroup;
-			children = (
-				979352B61AD2212900E8229D /* SelectGroupMemberController.swift */,
-				9792A4531ACDF22F00365D07 /* GroupTableViewController.swift */,
-			);
-			name = GroupViewController;
-			sourceTree = "<group>";
-		};
-		97E746ED1AD3DB9E003C0276 /* TableCells */ = {
-			isa = PBXGroup;
-			children = (
-				978F1FDE1ABE14EF00191803 /* contact.swift */,
-				9792A4571ACDF4EC00365D07 /* ClickedTableViewCell.swift */,
-				9792A4551ACDF4D800365D07 /* NotClickedCell.swift */,
-				979352B21AD1F77700E8229D /* SectionCellClicked.swift */,
-				9794B96A1AC4B8AC006CFE92 /* EventCell.swift */,
-				979352B01AD1D53600E8229D /* SectionCell.swift */,
-			);
-			name = TableCells;
-			sourceTree = "<group>";
-		};
-		97E746EF1AD3DBD2003C0276 /* DataModels */ = {
-			isa = PBXGroup;
-			children = (
-				9791F8CB1AD0BB0000C5F077 /* MyGroup.swift */,
-				979035ED1ACF89B30006E970 /* Events.swift */,
-				979035EF1ACF89B40006E970 /* Groups.swift */,
-			);
-			name = DataModels;
 			sourceTree = "<group>";
 		};
 		E6D8DC66E43477A10A65869E /* Pods */ = {
