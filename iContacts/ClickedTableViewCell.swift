@@ -12,9 +12,6 @@ class ClickedTableViewCell: UITableViewCell {
     var phoneNumber:String?
     var emailAddress:String?
 
-    @IBOutlet var mailIcon: UIButton!
-    @IBOutlet var textIcon: UIButton!
-    @IBOutlet var phoneIcon: UIButton!
     @IBOutlet var name: UILabel!
     @IBOutlet var thumbnail: UIImageView!
     override func awakeFromNib() {
@@ -93,21 +90,10 @@ class ClickedTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        /*self.thumbnail.layer.masksToBounds = true
+        self.thumbnail.layer.masksToBounds = true
         self.thumbnail.layer.cornerRadius = self.thumbnail.bounds.size.width / 2
         self.thumbnail.layer.borderWidth = 2
         self.thumbnail.layer.borderColor = UIColor.grayColor().CGColor
-        self.thumbnail.highlighted = true*/
-        OvalIcon(self.thumbnail,color: UIColor.grayColor().CGColor,width: 2)
-        OvalIcon(textIcon,color: UIColor.blackColor().CGColor,width: 0.5)
-        OvalIcon(phoneIcon,color: UIColor.blackColor().CGColor,width: 0.5)
-        OvalIcon(mailIcon,color: UIColor.blackColor().CGColor,width: 0.5)
-    }
-    
-    func OvalIcon(View:UIView, color:CGColor,width:CGFloat){
-        View.layer.masksToBounds = true
-        View.layer.cornerRadius = View.bounds.size.width / 2
-        View.layer.borderWidth = width
-        View.layer.borderColor = color
+        self.thumbnail.highlighted = true
     }
 }

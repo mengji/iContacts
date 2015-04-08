@@ -158,8 +158,8 @@ class GroupTableViewController: UITableViewController, GroupTableViewRefreshRemi
             background.frame = CGRectMake(0, 65, UIScreen.mainScreen().bounds.width, 49)
             //background.image = UIImage(named: "arrawBg.png")
             background.backgroundColor = UIColor.grayColor()
-            //cell.addSubview(background)
-            //cell.sendSubviewToBack(background)
+            cell.addSubview(background)
+            cell.sendSubviewToBack(background)
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("notClicked", forIndexPath: indexPath) as NotClickedCell
