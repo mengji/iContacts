@@ -182,6 +182,7 @@ class contactTableViewController: UITableViewController, ABPersonViewControllerD
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addBackground()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -207,6 +208,26 @@ class contactTableViewController: UITableViewController, ABPersonViewControllerD
         refresh()
     }
     
+    func addBackground(){
+        var background = UIImageView(image: UIImage(named:"background"))
+        background.frame = UIScreen.mainScreen().bounds
+        var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        var effectView:UIVisualEffectView = UIVisualEffectView (effect: blur)
+        effectView.frame = background.frame
+        background.addSubview(effectView)
+        self.tableView.backgroundView = background
+    }
+    
+    func addBackground(view:UIView){
+        var background = UIImageView(image: UIImage(named:"background"))
+        background.frame = UIScreen.mainScreen().bounds
+        var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        var effectView:UIVisualEffectView = UIVisualEffectView (effect: blur)
+        effectView.frame = background.frame
+        background.addSubview(effectView)
+        //view.addSubview(background)
+        view.sendSubviewToBack(background)
+    }
 
     
     func refresh(){
@@ -247,6 +268,7 @@ class contactTableViewController: UITableViewController, ABPersonViewControllerD
         let firstName = myBook[indexPath.row]["FirstName"] as? String
         let lastName = myBook[indexPath.row]["LastName"] as? String
         cell.name.text = (firstName ?? "") + " " + (lastName ?? "")
+        cell.backgroundColor = UIColor.clearColor()
         return cell
     }
     
@@ -291,6 +313,7 @@ class contactTableViewController: UITableViewController, ABPersonViewControllerD
         vc.displayedProperties = [Int(kABPersonEmailProperty),Int(kABPersonPhoneProperty)]
         vc.allowsEditing = true
         vc.allowsActions = true
+        addBackground(vc.view)
         self.showViewController(vc, sender: self)
         
     }

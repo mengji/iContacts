@@ -95,9 +95,22 @@ class GroupTableViewController: UITableViewController, GroupTableViewRefreshRemi
         tableView.reloadData()
 
     }
+    
+    func addBackGround(){
+        var background = UIImageView(image: UIImage(named:"background"))
+        background.frame = UIScreen.mainScreen().bounds
+        var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        var effectView:UIVisualEffectView = UIVisualEffectView (effect: blur)
+        effectView.frame = background.frame
+        background.addSubview(effectView)
+        self.tableView.backgroundView = background
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.backgroundView = UIImageView(image: UIImage(named: "blur.png"))
+        addBackGround()
+
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
         
 

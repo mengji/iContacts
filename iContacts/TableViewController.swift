@@ -15,6 +15,7 @@ class TableViewController: UITableViewController,EventsViewRefreshReminder {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addBackground()
         refresh()
 
         // Uncomment the following line to preserve selection between presentations
@@ -35,6 +36,17 @@ class TableViewController: UITableViewController,EventsViewRefreshReminder {
     func refresh(){
         fetch()
         self.tableView.reloadData()
+    }
+    
+    
+    func addBackground(){
+        var background = UIImageView(image: UIImage(named:"background"))
+        background.frame = UIScreen.mainScreen().bounds
+        var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        var effectView:UIVisualEffectView = UIVisualEffectView (effect: blur)
+        effectView.frame = background.frame
+        background.addSubview(effectView)
+        self.tableView.backgroundView = background
     }
     
     func fetch(){

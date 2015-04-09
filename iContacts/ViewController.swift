@@ -19,6 +19,10 @@ class ViewController: UIViewController, ViewControllerDataSource, IGLDropDownMen
     @IBOutlet var dropDown: IGLDropDownMenu!
         
     
+
+    @IBOutlet var viewInScrollView: UIView!
+    @IBOutlet var container: UIScrollView!
+
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     var dateSeleted: NSDate = NSDate()
     var id:String = String()
@@ -54,6 +58,16 @@ class ViewController: UIViewController, ViewControllerDataSource, IGLDropDownMen
         return true
     }
     
+    func addBackground(view : UIView){
+        var background = UIImageView(image: UIImage(named:"background"))
+        background.frame = UIScreen.mainScreen().bounds
+        var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        var effectView:UIVisualEffectView = UIVisualEffectView (effect: blur)
+        effectView.frame = background.frame
+        background.addSubview(effectView)
+        view.addSubview(background)
+        view.sendSubviewToBack(background)
+    }
     
 
     
@@ -91,6 +105,9 @@ class ViewController: UIViewController, ViewControllerDataSource, IGLDropDownMen
     override func viewDidLoad() {
         super.viewDidLoad()
         reason.delegate = self
+        self.viewInScrollView.backgroundColor = UIColor.clearColor()
+        addBackground(container)
+        
         
 
 

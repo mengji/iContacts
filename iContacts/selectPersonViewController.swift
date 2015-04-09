@@ -22,8 +22,20 @@ class selectPersonViewController: UITableViewController, UISearchBarDelegate{
         super.viewDidLoad()
         searchBar.delegate = self
         getContacts()
+        addBackground()
     }
-
+    
+    func addBackground(){
+        var background = UIImageView(image: UIImage(named:"background"))
+        background.frame = UIScreen.mainScreen().bounds
+        var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        var effectView:UIVisualEffectView = UIVisualEffectView (effect: blur)
+        effectView.frame = background.frame
+        background.addSubview(effectView)
+        self.tableView.backgroundView = background
+        self.view.addSubview(background)
+        self.searchBar.backgroundImage = UIImage()
+    }
 
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
@@ -83,7 +95,7 @@ class selectPersonViewController: UITableViewController, UISearchBarDelegate{
         } else {
             cell.myimage.image = UIImage(named: "placeholder")
         }
-        
+        cell.backgroundColor = UIColor.clearColor()
         let firstName = seletedContact.firstName
         let lastName = seletedContact.lastName
         cell.name.text = (firstName ?? "") + " " + (lastName ?? "")
